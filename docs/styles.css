@@ -11,5 +11,14 @@
 @media(max-width:900px){.shopping-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:620px){.shopping-grid{grid-template-columns:1fr}}
 
+/* Meal plan */
+.mealplan-page{padding:55px 0 100px}.mealplan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.day-card{cursor:default}.day-card:hover{transform:none;box-shadow:0 12px 35px rgba(20,45,37,.08)}.day-card.today{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent),0 12px 35px rgba(20,45,37,.1)}.meal{margin-top:12px}.meal-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:var(--muted)}.meal p{margin:.2rem 0 0;color:var(--ink)}.day-note{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;font-style:italic}
+@media(max-width:900px){.mealplan-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.mealplan-grid{grid-template-columns:1fr}}
+
+/* Recipe dialog extras */
+.rating{color:var(--accent);letter-spacing:2px}.dialog-source{padding:0 52px 40px;margin:0}.dialog-source a{color:var(--accent);font-weight:800;text-decoration:none}
+@media(max-width:620px){.dialog-source{padding:0 25px 30px}}
+
 /* Project status */
 .project-badge{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px;padding:9px 14px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(255,255,255,.08);font-weight:800;font-size:.86rem;backdrop-filter:blur(6px)}.project-badge span{font-weight:600;color:#dce9e4}@media(max-width:560px){.project-badge{border-radius:18px;align-items:flex-start}.project-badge span{display:block;width:100%;padding-left:28px}}

@@ -3,6 +3,14 @@
 Version: 1.0  
 Status: Tested
 
+## Summary
+
+A fast lunch with protein, acidity and crunch, built from whatever is actually in the fridge.
+
+## Time
+
+10 minutes
+
 ## Ingredients
 
 - Mixed salad leaves or rocket

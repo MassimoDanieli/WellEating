@@ -1,0 +1,256 @@
+{
+  "recipes": [
+    {
+      "id": "mustard-lemon-dressing",
+      "title": "Mustard and Lemon Dressing",
+      "category": "Sauce",
+      "status": "Production ready",
+      "version": "1.1",
+      "time": 3,
+      "icon": "🍋",
+      "summary": "A bright everyday dressing that works with salads, fish and warm vegetables.",
+      "rating": null,
+      "ingredients": [
+        "1 teaspoon smooth Dijon mustard",
+        "Juice of 1/2 lemon",
+        "1 teaspoon extra virgin olive oil",
+        "Black pepper",
+        "1/2 teaspoon honey, optional",
+        "Chives, optional"
+      ],
+      "method": [
+        "Whisk until emulsified.",
+        "Add a teaspoon of water if a thinner dressing is needed."
+      ],
+      "note": "English mustard variation: Use only 1/2 teaspoon English mustard and include honey to soften the heat.",
+      "source": "recipes/sauces/mustard-lemon-dressing.md"
+    },
+    {
+      "id": "zucchini-onion-emmental-frittata",
+      "title": "Zucchini, Caramelised Onion and Emmental Frittata",
+      "category": "Dinner",
+      "status": "Production ready",
+      "version": "1.1",
+      "time": 25,
+      "icon": "🍳",
+      "summary": "Caramelised onion, tender courgette and enough cheese to make added salt optional.",
+      "rating": 5,
+      "ingredients": [
+        "3 eggs",
+        "1 courgette, thinly sliced",
+        "1 medium onion, thinly sliced",
+        "30-40 g Emmental, grated",
+        "1 teaspoon extra virgin olive oil",
+        "1/2 teaspoon honey",
+        "Black pepper",
+        "Very little salt, or none"
+      ],
+      "method": [
+        "Heat the oil over medium heat.",
+        "Cook the onion for four minutes.",
+        "Add the honey and continue cooking gently.",
+        "Add a tablespoon of water whenever the pan becomes too dry.",
+        "Add the courgette and cook until tender but not mushy.",
+        "Beat the eggs with black pepper and most of the Emmental.",
+        "Pour into the pan and lower the heat.",
+        "Cover and cook until nearly set.",
+        "Turn briefly, or finish under a grill only if the pan is oven-safe."
+      ],
+      "note": "Good hot and cold. The caramelised onion and cheese make added salt largely unnecessary. Water works better than extra oil when the onion starts catching.",
+      "source": "recipes/dinner/zucchini-onion-emmental-frittata.md"
+    },
+    {
+      "id": "salmon-air-fryer-vegetables",
+      "title": "Air-Fryer Salmon with Vegetables",
+      "category": "Fish",
+      "status": "Tested",
+      "version": "1.1",
+      "time": 20,
+      "icon": "🐟",
+      "summary": "A simple working-day dinner with crisp vegetables and properly juicy salmon.",
+      "rating": null,
+      "ingredients": [
+        "180-200 g salmon fillet",
+        "Courgette",
+        "Red pepper",
+        "Onion",
+        "Up to 1 tablespoon extra virgin olive oil for the full dish",
+        "Black pepper",
+        "Lemon",
+        "Optional smoked paprika"
+      ],
+      "method": [
+        "Cut vegetables into fairly thick pieces.",
+        "Start the vegetables first at 190 C.",
+        "Add the salmon later so it cooks for only eight to ten minutes.",
+        "Remove the salmon as soon as it is just cooked; residual heat will continue the process.",
+        "Finish with lemon and black pepper."
+      ],
+      "note": "Thin courgette slices overcook quickly. The salmon was best removed slightly before the timer ended.",
+      "source": "recipes/fish/salmon-air-fryer-vegetables.md"
+    },
+    {
+      "id": "bresaola-rocket-parmesan",
+      "title": "Bresaola, Rocket and Parmesan Plate",
+      "category": "Salad",
+      "status": "Tested",
+      "version": "1.0",
+      "time": 8,
+      "icon": "🥩",
+      "summary": "Minimal preparation, strong flavours and a sensible portion of bread on the side.",
+      "rating": null,
+      "ingredients": [
+        "80 g bresaola",
+        "Rocket",
+        "20 g Parmesan",
+        "Cherry tomatoes",
+        "1 slice wholemeal bread",
+        "1 tablespoon extra virgin olive oil",
+        "Lemon",
+        "Black pepper"
+      ],
+      "method": [
+        "Arrange the rocket and bresaola.",
+        "Add shaved Parmesan and tomatoes.",
+        "Finish with oil, lemon and black pepper.",
+        "Serve with wholemeal bread."
+      ],
+      "note": "",
+      "source": "recipes/salads/bresaola-rocket-parmesan.md"
+    },
+    {
+      "id": "dijon-honey-lemon-tofu",
+      "title": "Dijon, Honey and Lemon Tofu",
+      "category": "Vegetarian",
+      "status": "Tested",
+      "version": "1.1",
+      "time": 30,
+      "icon": "🌱",
+      "summary": "A sharp-sweet marinade that gives super-firm tofu real flavour without drying it out.",
+      "rating": null,
+      "ingredients": [
+        "180-200 g super-firm tofu",
+        "2 teaspoons smooth Dijon mustard",
+        "1 teaspoon honey",
+        "Juice of 1/2 lemon",
+        "1 teaspoon extra virgin olive oil",
+        "Black pepper",
+        "Chilli flakes",
+        "Optional thyme or oregano"
+      ],
+      "method": [
+        "Cut the tofu into two-centimetre cubes.",
+        "Mix the marinade ingredients.",
+        "Coat the tofu and leave for 15-20 minutes.",
+        "Air fry at 190 C for eight minutes.",
+        "Check immediately; super-firm tofu dries quickly.",
+        "Add only one or two further minutes if needed."
+      ],
+      "note": "M&S super-firm tofu was already dry at nine minutes. Use smooth Dijon, not wholegrain, for a proper coating.",
+      "source": "recipes/vegetarian/dijon-honey-lemon-tofu.md"
+    },
+    {
+      "id": "moroccan-chickpea-harissa-couscous",
+      "title": "Moroccan-Style Chickpea and Harissa Couscous",
+      "category": "Couscous",
+      "status": "Tested",
+      "version": "1.1",
+      "time": 25,
+      "icon": "🥣",
+      "summary": "Warm, spicy couscous balanced with lemon, parsley and Greek yoghurt.",
+      "rating": null,
+      "ingredients": [
+        "80 g dry couscous, prepared and fluffed",
+        "1 medium onion, sliced",
+        "120 g chickpeas, drained",
+        "Cherry tomatoes, when available",
+        "1 teaspoon harissa, adjusted to taste",
+        "1 teaspoon extra virgin olive oil",
+        "1/2 teaspoon honey",
+        "1/2 lemon",
+        "1 small garlic clove",
+        "Fresh parsley",
+        "1-2 tablespoons Greek yoghurt",
+        "Black pepper"
+      ],
+      "method": [
+        "Cook the onion in one teaspoon of oil.",
+        "Add small splashes of water to prevent burning.",
+        "Add honey after about four minutes.",
+        "Add garlic for 30 seconds.",
+        "Add chickpeas and cook for two or three minutes.",
+        "Stir in the harissa and a little water.",
+        "Add tomatoes briefly, if using.",
+        "Fold in the couscous.",
+        "Finish with lemon, parsley and black pepper.",
+        "Serve with Greek yoghurt on top."
+      ],
+      "note": "The yoghurt balances the harissa. Do not rely on oil alone to cook the onion; water prevents scorching.",
+      "source": "recipes/couscous/moroccan-chickpea-harissa-couscous.md"
+    },
+    {
+      "id": "tuna-mustard-salad",
+      "title": "Tuna and Mustard Salad",
+      "category": "Salad",
+      "status": "Tested",
+      "version": "1.0",
+      "time": 10,
+      "icon": "🥗",
+      "summary": "A fast lunch with protein, acidity and crunch, built from whatever is actually in the fridge.",
+      "rating": null,
+      "ingredients": [
+        "Mixed salad leaves or rocket",
+        "80 g tinned tuna, drained",
+        "Thinly sliced onion or spring onion",
+        "Olives",
+        "Chickpeas, optional",
+        "Sauerkraut, optional",
+        "1 teaspoon extra virgin olive oil",
+        "Juice of 1/2 lemon",
+        "1/2 teaspoon English mustard",
+        "1/2 teaspoon honey, optional",
+        "Black pepper"
+      ],
+      "method": [
+        "Combine the salad ingredients.",
+        "Whisk the oil, lemon, mustard, honey and pepper.",
+        "Dress immediately before eating."
+      ],
+      "note": "",
+      "source": "recipes/salads/tuna-mustard-salad.md"
+    },
+    {
+      "id": "eggs-in-tomato-sauce",
+      "title": "Eggs in Tomato Sauce",
+      "category": "Dinner",
+      "status": "To test",
+      "version": "1.0",
+      "time": 25,
+      "icon": "🍅",
+      "summary": "Three eggs gently cooked in a reduced tomato sauce, with bread for the inevitable scarpetta.",
+      "rating": null,
+      "ingredients": [
+        "3 eggs",
+        "200-250 ml passata",
+        "1/2 onion",
+        "1 garlic clove",
+        "1 teaspoon extra virgin olive oil",
+        "Chilli flakes",
+        "Black pepper",
+        "Oregano",
+        "1 slice bread"
+      ],
+      "method": [
+        "Soften the onion in oil, adding water if needed.",
+        "Add garlic for 30 seconds.",
+        "Add passata, chilli, pepper and oregano.",
+        "Simmer for 10-15 minutes.",
+        "Make three wells and crack in the eggs.",
+        "Cover and cook for five to seven minutes.",
+        "Serve with bread."
+      ],
+      "note": "",
+      "source": "recipes/dinner/eggs-in-tomato-sauce.md"
+    }
+  ]
+}

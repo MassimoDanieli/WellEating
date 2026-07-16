@@ -3,6 +3,14 @@
 Version: 1.1  
 Status: Tested
 
+## Summary
+
+A sharp-sweet marinade that gives super-firm tofu real flavour without drying it out.
+
+## Time
+
+30 minutes
+
 ## Ingredients
 
 - 180-200 g super-firm tofu

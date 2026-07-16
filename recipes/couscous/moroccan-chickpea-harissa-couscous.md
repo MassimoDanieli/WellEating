@@ -3,6 +3,14 @@
 Version: 1.1  
 Status: Tested
 
+## Summary
+
+Warm, spicy couscous balanced with lemon, parsley and Greek yoghurt.
+
+## Time
+
+25 minutes
+
 ## Ingredients
 
 - 80 g dry couscous, prepared and fluffed

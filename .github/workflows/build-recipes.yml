@@ -1,0 +1,37 @@
+name: Build recipes.json
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "recipes/**"
+      - "scripts/build_recipes.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate docs/recipes.json from recipes/**.md
+        run: python3 scripts/build_recipes.py
+
+      - name: Commit the regenerated JSON if it changed
+        run: |
+          if git diff --quiet docs/recipes.json; then
+            echo "recipes.json already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/recipes.json
+          git commit -m "Rebuild recipes.json from markdown sources"
+          git push

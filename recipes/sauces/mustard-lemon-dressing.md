@@ -3,6 +3,14 @@
 Version: 1.1  
 Status: Production ready
 
+## Summary
+
+A bright everyday dressing that works with salads, fish and warm vegetables.
+
+## Time
+
+3 minutes
+
 ## Ingredients
 
 - 1 teaspoon smooth Dijon mustard

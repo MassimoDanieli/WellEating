@@ -2,6 +2,15 @@
 
 Version: 1.0  
 Status: Tested
+Icon: 🥩
+
+## Summary
+
+Minimal preparation, strong flavours and a sensible portion of bread on the side.
+
+## Time
+
+8 minutes
 
 ## Ingredients
 

@@ -3,6 +3,14 @@
 Version: 1.1  
 Status: Tested
 
+## Summary
+
+A simple working-day dinner with crisp vegetables and properly juicy salmon.
+
+## Time
+
+20 minutes
+
 ## Ingredients
 
 - 180-200 g salmon fillet

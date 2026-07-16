@@ -3,6 +3,10 @@
 Version: 1.1  
 Status: Production ready
 
+## Summary
+
+Caramelised onion, tender courgette and enough cheese to make added salt optional.
+
 ## Rating
 
 ★★★★★

@@ -2,6 +2,15 @@
 
 Version: 1.0  
 Status: To test
+Icon: 🍅
+
+## Summary
+
+Three eggs gently cooked in a reduced tomato sauce, with bread for the inevitable scarpetta.
+
+## Time
+
+25 minutes
 
 ## Ingredients
 
