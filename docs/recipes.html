@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Browse tested WellEating recipes by category, status and cooking time.">
+  <title>Recipes · WellEating</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="subhero">
+    <nav class="nav container">
+      <a class="brand" href="index.html">WellEating</a>
+      <div class="nav-links">
+        <a class="active" href="recipes.html">Recipes</a>
+        <a href="https://github.com/MassimoDanieli/WellEating/blob/main/pantry/shopping-list.md">Shopping list</a>
+        <a href="https://github.com/MassimoDanieli/WellEating">GitHub</a>
+      </div>
+    </nav>
+    <div class="container subhero-content">
+      <p class="eyebrow">The cookbook</p>
+      <h1>Recipes worth repeating.</h1>
+      <p class="intro">Search, filter and open every recipe without leaving the page.</p>
+    </div>
+  </header>
+
+  <main class="container recipe-page">
+    <section class="filter-panel" aria-label="Recipe filters">
+      <label class="search-box">
+        <span>Search recipes</span>
+        <input id="search" type="search" placeholder="Try salmon, quick, vegetarian…" autocomplete="off">
+      </label>
+      <div class="filter-group">
+        <span>Category</span>
+        <div id="categoryFilters" class="chips" role="group" aria-label="Category"></div>
+      </div>
+      <div class="filter-group">
+        <span>Status</span>
+        <div id="statusFilters" class="chips" role="group" aria-label="Status"></div>
+      </div>
+    </section>
+
+    <div class="results-bar">
+      <p><strong id="resultCount">0</strong> recipes</p>
+      <button id="clearFilters" class="text-button" type="button">Clear filters</button>
+    </div>
+
+    <section id="recipeGrid" class="recipe-grid recipe-library" aria-live="polite"></section>
+    <p id="emptyState" class="empty-state" hidden>No recipes match those filters. Try a broader search.</p>
+  </main>
+
+  <dialog id="recipeDialog" class="recipe-dialog">
+    <button class="dialog-close" type="button" aria-label="Close recipe">×</button>
+    <div id="dialogContent"></div>
+  </dialog>
+
+  <footer><div class="container footer-inner"><p><strong>WellEating</strong> — cooking beats dieting.</p><a href="index.html">Back home</a></div></footer>
+  <script src="recipes.js"></script>
+</body>
+</html>
