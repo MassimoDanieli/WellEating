@@ -20,5 +20,20 @@
 .rating{color:var(--accent);letter-spacing:2px}.dialog-source{padding:0 52px 40px;margin:0}.dialog-source a{color:var(--accent);font-weight:800;text-decoration:none}
 @media(max-width:620px){.dialog-source{padding:0 25px 30px}}
 
+/* Mobile app experience */
+.tabbar{display:none}
+@media(max-width:620px){
+  body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+  .tabbar{position:fixed;bottom:0;left:0;right:0;z-index:50;display:flex;justify-content:space-around;align-items:stretch;background:#102a22;padding:8px 6px calc(8px + env(safe-area-inset-bottom));box-shadow:0 -8px 30px rgba(16,42,34,.35)}
+  .tabbar a{display:flex;flex-direction:column;align-items:center;gap:2px;flex:1;padding:6px 4px;border-radius:14px;color:#dce9e4;text-decoration:none;font-size:.72rem;font-weight:800;letter-spacing:.02em}
+  .tabbar a span{font-size:1.35rem;line-height:1.2}
+  .tabbar a.active{color:#efb08f;background:rgba(255,255,255,.07)}
+  .shopping-items li{padding:9px 0;min-height:44px}
+  .shopping-items .box{width:22px;height:22px;flex:0 0 22px;border-radius:7px}
+  footer{margin-bottom:0}
+}
+.shopping-items li{cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}
+.shopping-items li:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
+
 /* Project status */
 .project-badge{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px;padding:9px 14px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(255,255,255,.08);font-weight:800;font-size:.86rem;backdrop-filter:blur(6px)}.project-badge span{font-weight:600;color:#dce9e4}@media(max-width:560px){.project-badge{border-radius:18px;align-items:flex-start}.project-badge span{display:block;width:100%;padding-left:28px}}

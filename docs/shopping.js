@@ -1,41 +1,90 @@
 const SOURCE_URL = "https://raw.githubusercontent.com/MassimoDanieli/WellEating/main/pantry/shopping-list.md";
+const TICKS_KEY = "welleating-shopping-ticks";
 
 const statusEl = document.querySelector("#shoppingStatus");
 const grid = document.querySelector("#shoppingGrid");
+const toolbar = document.querySelector("#shoppingToolbar");
+
+// Local ticks are overrides on top of the repo state, stored on this device:
+// tick items off at the supermarket without touching the repo.
+function loadTicks() {
+  try { return JSON.parse(localStorage.getItem(TICKS_KEY)) || {}; }
+  catch { return {}; }
+}
+function saveTicks(ticks) {
+  try { localStorage.setItem(TICKS_KEY, JSON.stringify(ticks)); } catch {}
+}
+
+let ticks = loadTicks();
+let sections = [];
 
 function parseShoppingList(markdown) {
   const lines = markdown.split("\n");
-  const sections = [];
+  const parsed = [];
   let current = null;
 
   for (const rawLine of lines) {
     const line = rawLine.trim();
     if (line.startsWith("## ")) {
       current = { title: line.replace("## ", ""), items: [] };
-      sections.push(current);
+      parsed.push(current);
     } else if (/^- \[( |x)\]/i.test(line) && current) {
-      const checked = /^- \[x\]/i.test(line);
+      const repoChecked = /^- \[x\]/i.test(line);
       const text = line.replace(/^- \[( |x)\]\s*/i, "");
-      current.items.push({ text, checked });
+      current.items.push({ text, repoChecked });
     }
   }
-  return sections;
+  return parsed;
 }
 
-function renderSections(sections) {
+function isChecked(item) {
+  return ticks[item.text] !== undefined ? ticks[item.text] : item.repoChecked;
+}
+
+function toggle(item) {
+  ticks[item.text] = !isChecked(item);
+  saveTicks(ticks);
+  render();
+}
+
+function render() {
+  const anyTicks = Object.keys(ticks).length > 0;
+  toolbar.hidden = !anyTicks;
+
   grid.replaceChildren(...sections.map(section => {
     const article = document.createElement("article");
     article.className = "recipe-card shopping-card";
-    const remaining = section.items.filter(i => !i.checked).length;
-    article.innerHTML = `
-      <p class="tag">${remaining} to buy</p>
-      <h3>${section.title}</h3>
-      <ul class="shopping-items">
-        ${section.items.map(item => `<li class="${item.checked ? "checked" : ""}"><span class="box" aria-hidden="true"></span>${item.text}</li>`).join("")}
-      </ul>`;
+    const remaining = section.items.filter(i => !isChecked(i)).length;
+
+    const heading = document.createElement("div");
+    heading.innerHTML = `<p class="tag">${remaining} to buy</p><h3>${section.title}</h3>`;
+    article.appendChild(heading);
+
+    const list = document.createElement("ul");
+    list.className = "shopping-items";
+    section.items.forEach(item => {
+      const li = document.createElement("li");
+      li.className = isChecked(item) ? "checked" : "";
+      li.innerHTML = `<span class="box" aria-hidden="true"></span>${item.text}`;
+      li.setAttribute("role", "checkbox");
+      li.setAttribute("aria-checked", isChecked(item));
+      li.tabIndex = 0;
+      li.addEventListener("click", () => toggle(item));
+      li.addEventListener("keydown", e => {
+        if (e.key === " " || e.key === "Enter") { e.preventDefault(); toggle(item); }
+      });
+      list.appendChild(li);
+    });
+    article.appendChild(list);
     return article;
   }));
 }
+
+document.querySelector("#clearTicks").addEventListener("click", () => {
+  ticks = {};
+  saveTicks(ticks);
+  render();
+});
 
 fetch(SOURCE_URL)
   .then(response => {
@@ -43,13 +92,13 @@ fetch(SOURCE_URL)
     return response.text();
   })
   .then(markdown => {
-    const sections = parseShoppingList(markdown);
+    sections = parseShoppingList(markdown);
     if (!sections.length) {
       statusEl.textContent = "The list is currently empty. Time to plan a shop.";
       return;
     }
     statusEl.hidden = true;
-    renderSections(sections);
+    render();
   })
   .catch(() => {
     statusEl.textContent = "Couldn't load the live list right now — open it directly on GitHub instead.";

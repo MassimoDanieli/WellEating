@@ -14,6 +14,11 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#163c31">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -76,5 +81,12 @@
   </main>
 
   <footer><div class="container footer-inner"><p><strong>WellEating</strong> — made with ☕, 🍳 and ChatGPT.</p><a href="https://github.com/MassimoDanieli/WellEating">View source on GitHub</a></div></footer>
+  <nav class="tabbar" aria-label="Primary">
+    <a href="index.html" class="active"><span aria-hidden="true">🏠</span>Home</a>
+    <a href="recipes.html"><span aria-hidden="true">📖</span>Recipes</a>
+    <a href="meal-plan.html"><span aria-hidden="true">📅</span>Plan</a>
+    <a href="shopping.html"><span aria-hidden="true">🛒</span>Shop</a>
+  </nav>
+  <script src="pwa.js" defer></script>
 </body>
 </html>

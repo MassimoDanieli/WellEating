@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.3.0 - 2026-07-16
+
+Mobile app experience.
+
+- Installable PWA: web app manifest, icons and a service worker with
+  offline support (network-first, cache fallback) — the cookbook, meal
+  plan and shopping list all work without a connection once visited.
+- App-style bottom tab bar on small screens (the desktop nav links were
+  previously hidden on mobile with no replacement).
+- Shopping list items are now tappable: tick things off at the
+  supermarket, with ticks stored locally on the device and a
+  "clear ticks" action. Repo checkboxes remain the shared source.
+- Larger touch targets and iPhone safe-area handling.
+
 ## 0.2.0 - 2026-07-16
 
 Website and pipeline improvements.
