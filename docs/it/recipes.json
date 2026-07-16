@@ -1,0 +1,264 @@
+{
+  "recipes": [
+    {
+      "id": "mustard-lemon-dressing",
+      "title": "Condimento senape e limone",
+      "category": "Salsa",
+      "status": "Production ready",
+      "version": "1.1",
+      "time": 3,
+      "icon": "🍋",
+      "summary": "Un condimento fresco per tutti i giorni, perfetto con insalate, pesce e verdure calde.",
+      "rating": null,
+      "ingredients": [
+        "1 cucchiaino di senape di Digione liscia",
+        "Succo di 1/2 limone",
+        "1 cucchiaino di olio extravergine di oliva",
+        "Pepe nero",
+        "1/2 cucchiaino di miele, facoltativo",
+        "Erba cipollina, facoltativa"
+      ],
+      "method": [
+        "Emulsiona il tutto con una frusta.",
+        "Aggiungi un cucchiaino d'acqua se serve un condimento più fluido."
+      ],
+      "note": "Variante con senape inglese: Usa solo 1/2 cucchiaino di senape inglese e includi il miele per ammorbidire la piccantezza.",
+      "source": "recipes/sauces/mustard-lemon-dressing.md",
+      "translated": true
+    },
+    {
+      "id": "zucchini-onion-emmental-frittata",
+      "title": "Frittata di zucchine, cipolla caramellata ed Emmental",
+      "category": "Cena",
+      "status": "Production ready",
+      "version": "1.1",
+      "time": 25,
+      "icon": "🍳",
+      "summary": "Cipolla caramellata, zucchine morbide e abbastanza formaggio da rendere il sale opzionale.",
+      "rating": 5,
+      "ingredients": [
+        "3 uova",
+        "1 zucchina, affettata sottile",
+        "1 cipolla media, affettata sottile",
+        "30-40 g di Emmental grattugiato",
+        "1 cucchiaino di olio extravergine di oliva",
+        "1/2 cucchiaino di miele",
+        "Pepe nero",
+        "Pochissimo sale, o niente"
+      ],
+      "method": [
+        "Scalda l'olio a fuoco medio.",
+        "Cuoci la cipolla per quattro minuti.",
+        "Aggiungi il miele e continua a cuocere dolcemente.",
+        "Aggiungi un cucchiaio d'acqua ogni volta che la padella si asciuga troppo.",
+        "Aggiungi la zucchina e cuoci finché è tenera ma non sfatta.",
+        "Sbatti le uova con il pepe nero e quasi tutto l'Emmental.",
+        "Versa nella padella e abbassa la fiamma.",
+        "Copri e cuoci finché è quasi rappresa.",
+        "Girala brevemente, o finiscila sotto il grill solo se la padella va in forno."
+      ],
+      "note": "Buona calda e fredda. La cipolla caramellata e il formaggio rendono il sale aggiunto quasi superfluo. Quando la cipolla attacca, l'acqua funziona meglio di altro olio.",
+      "source": "recipes/dinner/zucchini-onion-emmental-frittata.md",
+      "translated": true
+    },
+    {
+      "id": "moroccan-chickpea-harissa-couscous",
+      "title": "Couscous alla marocchina con ceci e harissa",
+      "category": "Couscous",
+      "status": "Tested",
+      "version": "1.1",
+      "time": 25,
+      "icon": "🥣",
+      "summary": "Couscous caldo e speziato, bilanciato da limone, prezzemolo e yogurt greco.",
+      "rating": null,
+      "ingredients": [
+        "80 g di couscous secco, preparato e sgranato",
+        "1 cipolla media, affettata",
+        "120 g di ceci, scolati",
+        "Pomodorini, quando disponibili",
+        "1 cucchiaino di harissa, da regolare a piacere",
+        "1 cucchiaino di olio extravergine di oliva",
+        "1/2 cucchiaino di miele",
+        "1/2 limone",
+        "1 spicchio d'aglio piccolo",
+        "Prezzemolo fresco",
+        "1-2 cucchiai di yogurt greco",
+        "Pepe nero"
+      ],
+      "method": [
+        "Cuoci la cipolla in un cucchiaino d'olio.",
+        "Aggiungi piccoli spruzzi d'acqua per non farla bruciare.",
+        "Dopo circa quattro minuti aggiungi il miele.",
+        "Aggiungi l'aglio per 30 secondi.",
+        "Aggiungi i ceci e cuoci per due o tre minuti.",
+        "Incorpora l'harissa e un po' d'acqua.",
+        "Aggiungi brevemente i pomodorini, se li usi.",
+        "Unisci il couscous mescolando.",
+        "Completa con limone, prezzemolo e pepe nero.",
+        "Servi con lo yogurt greco sopra."
+      ],
+      "note": "Lo yogurt bilancia l'harissa. Non affidarti solo all'olio per cuocere la cipolla: l'acqua evita che bruci.",
+      "source": "recipes/couscous/moroccan-chickpea-harissa-couscous.md",
+      "translated": true
+    },
+    {
+      "id": "tuna-mustard-salad",
+      "title": "Insalata di tonno con senape",
+      "category": "Insalata",
+      "status": "Tested",
+      "version": "1.0",
+      "time": 10,
+      "icon": "🥗",
+      "summary": "Un pranzo veloce con proteine, acidità e croccantezza, costruito con quello che c'è davvero in frigo.",
+      "rating": null,
+      "ingredients": [
+        "Insalata mista o rucola",
+        "80 g di tonno in scatola, scolato",
+        "Cipolla o cipollotto affettati sottili",
+        "Olive",
+        "Ceci, facoltativi",
+        "Crauti, facoltativi",
+        "1 cucchiaino di olio extravergine di oliva",
+        "Succo di 1/2 limone",
+        "1/2 cucchiaino di senape inglese",
+        "1/2 cucchiaino di miele, facoltativo",
+        "Pepe nero"
+      ],
+      "method": [
+        "Unisci gli ingredienti dell'insalata.",
+        "Emulsiona olio, limone, senape, miele e pepe.",
+        "Condisci solo un attimo prima di mangiare."
+      ],
+      "note": "",
+      "source": "recipes/salads/tuna-mustard-salad.md",
+      "translated": true
+    },
+    {
+      "id": "bresaola-rocket-parmesan",
+      "title": "Piatto di bresaola, rucola e Parmigiano",
+      "category": "Insalata",
+      "status": "Tested",
+      "version": "1.0",
+      "time": 8,
+      "icon": "🥩",
+      "summary": "Preparazione minima, sapori decisi e una porzione sensata di pane a fianco.",
+      "rating": null,
+      "ingredients": [
+        "80 g di bresaola",
+        "Rucola",
+        "20 g di Parmigiano",
+        "Pomodorini",
+        "1 fetta di pane integrale",
+        "1 cucchiaio di olio extravergine di oliva",
+        "Limone",
+        "Pepe nero"
+      ],
+      "method": [
+        "Disponi la rucola e la bresaola.",
+        "Aggiungi il Parmigiano a scaglie e i pomodorini.",
+        "Completa con olio, limone e pepe nero.",
+        "Servi con il pane integrale."
+      ],
+      "note": "",
+      "source": "recipes/salads/bresaola-rocket-parmesan.md",
+      "translated": true
+    },
+    {
+      "id": "salmon-air-fryer-vegetables",
+      "title": "Salmone e verdure in friggitrice ad aria",
+      "category": "Pesce",
+      "status": "Tested",
+      "version": "1.1",
+      "time": 20,
+      "icon": "🐟",
+      "summary": "Una cena semplice da giorno lavorativo, con verdure croccanti e salmone davvero succoso.",
+      "rating": null,
+      "ingredients": [
+        "180-200 g di filetto di salmone",
+        "Zucchina",
+        "Peperone rosso",
+        "Cipolla",
+        "Fino a 1 cucchiaio di olio extravergine di oliva per l'intero piatto",
+        "Pepe nero",
+        "Limone",
+        "Paprika affumicata, facoltativa"
+      ],
+      "method": [
+        "Taglia le verdure a pezzi piuttosto spessi.",
+        "Inizia prima con le verdure a 190 °C.",
+        "Aggiungi il salmone dopo, così cuoce solo otto-dieci minuti.",
+        "Toglilo appena è appena cotto: il calore residuo continuerà la cottura.",
+        "Completa con limone e pepe nero."
+      ],
+      "note": "Le fette di zucchina sottili scuociono in fretta. Il salmone è venuto meglio toltolo un po' prima della fine del timer.",
+      "source": "recipes/fish/salmon-air-fryer-vegetables.md",
+      "translated": true
+    },
+    {
+      "id": "dijon-honey-lemon-tofu",
+      "title": "Tofu con senape di Digione, miele e limone",
+      "category": "Vegetariano",
+      "status": "Tested",
+      "version": "1.1",
+      "time": 30,
+      "icon": "🌱",
+      "summary": "Una marinatura agrodolce che dà vero sapore al tofu extra-compatto senza seccarlo.",
+      "rating": null,
+      "ingredients": [
+        "180-200 g di tofu extra-compatto",
+        "2 cucchiaini di senape di Digione liscia",
+        "1 cucchiaino di miele",
+        "Succo di 1/2 limone",
+        "1 cucchiaino di olio extravergine di oliva",
+        "Pepe nero",
+        "Peperoncino in fiocchi",
+        "Timo o origano, facoltativi"
+      ],
+      "method": [
+        "Taglia il tofu a cubetti di due centimetri.",
+        "Mescola gli ingredienti della marinatura.",
+        "Ricopri il tofu e lascia riposare 15-20 minuti.",
+        "Cuoci in friggitrice ad aria a 190 °C per otto minuti.",
+        "Controlla subito: il tofu extra-compatto si secca in fretta.",
+        "Aggiungi solo uno o due minuti in più se serve."
+      ],
+      "note": "Il tofu extra-compatto di M&S era già asciutto a nove minuti. Usa senape di Digione liscia, non in grani, per una copertura uniforme.",
+      "source": "recipes/vegetarian/dijon-honey-lemon-tofu.md",
+      "translated": true
+    },
+    {
+      "id": "eggs-in-tomato-sauce",
+      "title": "Uova al pomodoro",
+      "category": "Cena",
+      "status": "To test",
+      "version": "1.0",
+      "time": 25,
+      "icon": "🍅",
+      "summary": "Tre uova cotte dolcemente in una salsa di pomodoro ristretta, con il pane per l'inevitabile scarpetta.",
+      "rating": null,
+      "ingredients": [
+        "3 uova",
+        "200-250 ml di passata",
+        "1/2 cipolla",
+        "1 spicchio d'aglio",
+        "1 cucchiaino di olio extravergine di oliva",
+        "Peperoncino in fiocchi",
+        "Pepe nero",
+        "Origano",
+        "1 fetta di pane"
+      ],
+      "method": [
+        "Fai appassire la cipolla nell'olio, aggiungendo acqua se serve.",
+        "Aggiungi l'aglio per 30 secondi.",
+        "Aggiungi passata, peperoncino, pepe e origano.",
+        "Fai sobbollire per 10-15 minuti.",
+        "Crea tre incavi e rompici dentro le uova.",
+        "Copri e cuoci per cinque-sette minuti.",
+        "Servi con il pane."
+      ],
+      "note": "",
+      "source": "recipes/dinner/eggs-in-tomato-sauce.md",
+      "translated": true
+    }
+  ]
+}

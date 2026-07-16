@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="WellEating: un ricettario personale sotto controllo versione, per mangiare bene con gusto.">
+  <title>WellEating</title>
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" hreflang="en" href="https://massimodanieli.github.io/WellEating/">
+  <link rel="alternate" hreflang="it" href="https://massimodanieli.github.io/WellEating/it/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="WellEating">
+  <meta property="og:description" content="Un ricettario personale sotto controllo versione, per mangiare bene con gusto.">
+  <meta property="og:url" content="https://massimodanieli.github.io/WellEating/it/">
+  <meta property="og:image" content="https://massimodanieli.github.io/WellEating/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="it_IT">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <meta name="theme-color" content="#163c31">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav container">
+      <a class="brand" href="./">WellEating</a>
+      <div class="nav-links">
+        <a href="recipes.html">Ricette</a>
+        <a href="meal-plan.html">Piano settimanale</a>
+        <a href="#workflow">Metodo</a>
+        <a href="https://github.com/MassimoDanieli/WellEating">GitHub</a>
+        <a href="../" lang="en">EN</a>
+      </div>
+    </nav>
+    <div class="hero-content container">
+      <p class="eyebrow">Un ricettario sotto controllo versione</p>
+      <div class="project-badge" role="status">🚧 Lavori in corso <span>Fatto con ChatGPT + GitHub · Iniziato a luglio 2026</span></div>
+      <h1>Mangia bene.<br>Con gusto.</h1>
+      <p class="intro">Piatti veloci e replicabili, costruiti su ingredienti veri, porzioni sensate e miglioramento continuo.</p>
+      <div class="actions">
+        <a class="button primary" href="recipes.html">Sfoglia le ricette</a>
+        <a class="button secondary" href="shopping.html">Lista della spesa</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="principles container">
+      <article><span>01</span><h2>Prima il gusto</h2><p>Il cibo sano deve restare cibo che hai davvero voglia di rimangiare.</p></article>
+      <article><span>02</span><h2>Trenta minuti</h2><p>La maggior parte dei piatti deve stare in una normale giornata di lavoro.</p></article>
+      <article><span>03</span><h2>Meno sprechi</h2><p>È il frigo vero a guidare il piano.</p></article>
+      <article><span>04</span><h2>Migliora sempre</h2><p>Ogni sessione in cucina può produrre una versione migliore.</p></article>
+    </section>
+
+    <section id="recipes" class="section container">
+      <div class="section-heading">
+        <p class="eyebrow">I preferiti production-ready</p>
+        <h2>Ricette testate</h2>
+      </div>
+      <div class="recipe-grid">
+        <a class="recipe-card" href="recipes.html?open=salmon-air-fryer-vegetables"><div class="recipe-icon">🐟</div><p class="tag">Pesce</p><h3>Salmone e verdure</h3><p>Semplice, sostanzioso e sempre veloce.</p></a>
+        <a class="recipe-card" href="recipes.html?open=zucchini-onion-emmental-frittata"><div class="recipe-icon">🍳</div><p class="tag">Cena</p><h3>Frittata di zucchine ed Emmental</h3><p>Cipolla caramellata, zucchine e formaggio nella giusta misura.</p></a>
+        <a class="recipe-card" href="recipes.html?open=moroccan-chickpea-harissa-couscous"><div class="recipe-icon">🥣</div><p class="tag">Couscous</p><h3>Couscous con ceci e harissa</h3><p>Vivace, speziato e bilanciato da limone e yogurt.</p></a>
+        <a class="recipe-card" href="recipes.html?open=dijon-honey-lemon-tofu"><div class="recipe-icon">🌱</div><p class="tag">Vegetariano</p><h3>Tofu con Digione, miele e limone</h3><p>Una marinatura veloce e piena di sapore.</p></a>
+        <a class="recipe-card" href="recipes.html?open=tuna-mustard-salad"><div class="recipe-icon">🥗</div><p class="tag">Insalata</p><h3>Insalata di tonno</h3><p>Un pranzo veloce con acidità, croccantezza e proteine.</p></a>
+        <a class="recipe-card" href="recipes.html"><div class="recipe-icon">📖</div><p class="tag">Tutte le ricette</p><h3>Apri il ricettario</h3><p>Tutte le ricette testate e gli esperimenti.</p></a>
+      </div>
+    </section>
+
+    <section id="workflow" class="workflow">
+      <div class="container workflow-grid">
+        <div><p class="eyebrow">La parte ingegneristica</p><h2>Cucinare come miglioramento continuo</h2><p>Le ricette partono dalla versione 1.0 e migliorano con il riscontro reale.</p></div>
+        <ol>
+          <li><strong>Controlla l'inventario</strong><span>Sapere cosa c'è davvero in frigo.</span></li>
+          <li><strong>Pianifica la settimana</strong><span>Usa prima quello che va consumato.</span></li>
+          <li><strong>Cucina e testa</strong><span>Annota cosa ha funzionato.</span></li>
+          <li><strong>Rilascia una versione migliore</strong><span>Aggiorna ricetta e changelog.</span></li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-inner"><p><strong>WellEating</strong> — fatto con ☕, 🍳 e ChatGPT.</p><a href="https://github.com/MassimoDanieli/WellEating">Codice sorgente su GitHub</a></div></footer>
+  <nav class="tabbar" aria-label="Principale">
+    <a href="index.html" class="active"><span aria-hidden="true">🏠</span>Home</a>
+    <a href="recipes.html"><span aria-hidden="true">📖</span>Ricette</a>
+    <a href="meal-plan.html"><span aria-hidden="true">📅</span>Piano</a>
+    <a href="shopping.html"><span aria-hidden="true">🛒</span>Spesa</a>
+    <a href="../" lang="en"><span aria-hidden="true">🌐</span>EN</a>
+  </nav>
+  <script src="../pwa.js" defer></script>
+</body>
+</html>

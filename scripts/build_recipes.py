@@ -148,9 +148,39 @@ def parse_recipe(path):
     }
 
 
-def build():
-    paths = sorted(RECIPES_DIR.glob("**/*.md"))
-    recipes = [parse_recipe(p) for p in paths]
+CATEGORY_IT = {
+    "Fish": "Pesce",
+    "Dinner": "Cena",
+    "Couscous": "Couscous",
+    "Vegetarian": "Vegetariano",
+    "Salad": "Insalata",
+    "Sauce": "Salsa",
+    "Breakfast": "Colazione",
+    "Soup": "Zuppa",
+    "Lunch": "Pranzo",
+}
+
+
+def build(lang="en"):
+    paths = sorted(p for p in RECIPES_DIR.glob("**/*.md") if not p.name.endswith(".it.md"))
+    recipes = []
+    for path in paths:
+        recipe = parse_recipe(path)
+        if lang == "it":
+            recipe["category"] = CATEGORY_IT.get(recipe["category"], recipe["category"])
+            it_path = path.with_name(path.stem + ".it.md")
+            if it_path.exists():
+                # Content (title, summary, ingredients, method, notes) from the
+                # translation; metadata (id, version, status, time, icon, rating)
+                # stays anchored to the English base so the two never drift.
+                translated = parse_recipe(it_path)
+                for field in ("title", "summary", "ingredients", "method", "note"):
+                    if translated[field]:
+                        recipe[field] = translated[field]
+                recipe["translated"] = True
+            else:
+                recipe["translated"] = False  # falls back to English content
+        recipes.append(recipe)
     recipes.sort(key=lambda r: (STATUS_ORDER.get(r["status"], 9), r["title"]))
     return json.dumps({"recipes": recipes}, indent=2, ensure_ascii=False) + "\n"
 
@@ -160,19 +190,26 @@ def main():
     parser.add_argument("--check", action="store_true", help="verify docs/recipes.json is up to date")
     args = parser.parse_args()
 
-    generated = build()
+    outputs = {
+        OUTPUT: build("en"),
+        ROOT / "docs" / "it" / "recipes.json": build("it"),
+    }
 
     if args.check:
-        current = OUTPUT.read_text(encoding="utf-8") if OUTPUT.exists() else ""
-        if current != generated:
-            print("docs/recipes.json is stale. Run: python3 scripts/build_recipes.py")
+        stale = [path for path, generated in outputs.items()
+                 if (path.read_text(encoding="utf-8") if path.exists() else "") != generated]
+        if stale:
+            names = ", ".join(str(p.relative_to(ROOT)) for p in stale)
+            print(f"Stale: {names}. Run: python3 scripts/build_recipes.py")
             sys.exit(1)
-        print("docs/recipes.json is up to date.")
+        print("recipes.json files are up to date.")
         return
 
-    OUTPUT.write_text(generated, encoding="utf-8")
-    count = generated.count('"id":')
-    print(f"Wrote {OUTPUT.relative_to(ROOT)} with {count} recipes.")
+    for path, generated in outputs.items():
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(generated, encoding="utf-8")
+        count = generated.count('"id":')
+        print(f"Wrote {path.relative_to(ROOT)} with {count} recipes.")
 
 
 if __name__ == "__main__":

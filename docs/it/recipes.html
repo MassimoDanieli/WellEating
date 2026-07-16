@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sfoglia le ricette WellEating per categoria, stato e tempo di preparazione.">
+  <title>Ricette · WellEating</title>
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" hreflang="en" href="https://massimodanieli.github.io/WellEating/recipes.html">
+  <link rel="alternate" hreflang="it" href="https://massimodanieli.github.io/WellEating/it/recipes.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ricette · WellEating">
+  <meta property="og:description" content="Sfoglia le ricette WellEating per categoria, stato e tempo di preparazione.">
+  <meta property="og:url" content="https://massimodanieli.github.io/WellEating/it/recipes.html">
+  <meta property="og:image" content="https://massimodanieli.github.io/WellEating/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="it_IT">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <meta name="theme-color" content="#163c31">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="subhero">
+    <nav class="nav container">
+      <a class="brand" href="index.html">WellEating</a>
+      <div class="nav-links">
+        <a class="active" href="recipes.html">Ricette</a>
+        <a href="meal-plan.html">Piano settimanale</a>
+        <a href="shopping.html">Lista della spesa</a>
+        <a href="https://github.com/MassimoDanieli/WellEating">GitHub</a>
+        <a href="../recipes.html" lang="en">EN</a>
+      </div>
+    </nav>
+    <div class="container subhero-content">
+      <p class="eyebrow">Il ricettario</p>
+      <h1>Ricette che vale la pena ripetere.</h1>
+      <p class="intro">Cerca, filtra e apri ogni ricetta senza cambiare pagina.</p>
+    </div>
+  </header>
+
+  <main class="container recipe-page">
+    <section class="filter-panel" aria-label="Filtri ricette">
+      <label class="search-box">
+        <span>Cerca ricette</span>
+        <input id="search" type="search" placeholder="Prova salmone, veloce, vegetariano…" autocomplete="off">
+      </label>
+      <div class="filter-group">
+        <span>Categoria</span>
+        <div id="categoryFilters" class="chips" role="group" aria-label="Categoria"></div>
+      </div>
+      <div class="filter-group">
+        <span>Stato</span>
+        <div id="statusFilters" class="chips" role="group" aria-label="Stato"></div>
+      </div>
+    </section>
+
+    <div class="results-bar">
+      <p><strong id="resultCount">0</strong> ricette</p>
+      <button id="clearFilters" class="text-button" type="button">Azzera filtri</button>
+    </div>
+
+    <section id="recipeGrid" class="recipe-grid recipe-library" aria-live="polite"></section>
+    <p id="emptyState" class="empty-state" hidden>Nessuna ricetta corrisponde ai filtri. Prova una ricerca più ampia.</p>
+  </main>
+
+  <dialog id="recipeDialog" class="recipe-dialog">
+    <button class="dialog-close" type="button" aria-label="Chiudi ricetta">×</button>
+    <div id="dialogContent"></div>
+  </dialog>
+
+  <footer><div class="container footer-inner"><p><strong>WellEating</strong> — fatto con ☕, 🍳 e ChatGPT.</p><a href="index.html">Torna alla home</a></div></footer>
+  <nav class="tabbar" aria-label="Principale">
+    <a href="index.html"><span aria-hidden="true">🏠</span>Home</a>
+    <a href="recipes.html" class="active"><span aria-hidden="true">📖</span>Ricette</a>
+    <a href="meal-plan.html"><span aria-hidden="true">📅</span>Piano</a>
+    <a href="shopping.html"><span aria-hidden="true">🛒</span>Spesa</a>
+    <a href="../recipes.html" lang="en"><span aria-hidden="true">🌐</span>EN</a>
+  </nav>
+  <script src="../recipes.js"></script>
+  <script src="../pwa.js" defer></script>
+</body>
+</html>

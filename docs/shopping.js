@@ -1,6 +1,15 @@
 const SOURCE_URL = "https://raw.githubusercontent.com/MassimoDanieli/WellEating/main/pantry/shopping-list.md";
 const TICKS_KEY = "welleating-shopping-ticks";
 
+const LANG = document.documentElement.lang === "it" ? "it" : "en";
+const T = {
+  en: { toBuy: "to buy", empty: "The list is currently empty. Time to plan a shop.",
+        error: "Couldn't load the live list right now \u2014 open it directly on GitHub instead." },
+  it: { toBuy: "da comprare", empty: "La lista al momento \u00e8 vuota. Ora di pianificare una spesa.",
+        error: "Impossibile caricare la lista in questo momento \u2014 aprila direttamente su GitHub." },
+}[LANG];
+
+
 const statusEl = document.querySelector("#shoppingStatus");
 const grid = document.querySelector("#shoppingGrid");
 const toolbar = document.querySelector("#shoppingToolbar");
@@ -57,7 +66,7 @@ function render() {
     const remaining = section.items.filter(i => !isChecked(i)).length;
 
     const heading = document.createElement("div");
-    heading.innerHTML = `<p class="tag">${remaining} to buy</p><h3>${section.title}</h3>`;
+    heading.innerHTML = `<p class="tag">${remaining} ${T.toBuy}</p><h3>${section.title}</h3>`;
     article.appendChild(heading);
 
     const list = document.createElement("ul");
@@ -94,12 +103,12 @@ fetch(SOURCE_URL)
   .then(markdown => {
     sections = parseShoppingList(markdown);
     if (!sections.length) {
-      statusEl.textContent = "The list is currently empty. Time to plan a shop.";
+      statusEl.textContent = T.empty;
       return;
     }
     statusEl.hidden = true;
     render();
   })
   .catch(() => {
-    statusEl.textContent = "Couldn't load the live list right now — open it directly on GitHub instead.";
+    statusEl.textContent = T.error;
   });

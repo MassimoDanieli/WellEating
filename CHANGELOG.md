@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.4.0 - 2026-07-16
+
+Italian version of the site.
+
+- Full Italian site at `it/` with translated homepage, recipe library,
+  meal plan and shopping list pages, plus a language switcher (top nav
+  and mobile tab bar) and hreflang alternates.
+- All eight recipes translated as `*.it.md` files next to the English
+  sources. The build pipeline emits `docs/it/recipes.json`, anchoring
+  metadata (version, status, time, icon) to the English base and falling
+  back to English content when a translation is missing.
+- Shared JavaScript localised via a per-page language dictionary
+  (interface strings, status labels, day names).
+- Italian web app manifest; service worker precache extended to the
+  Italian pages.
+
 ## 0.3.0 - 2026-07-16
 
 Mobile app experience.

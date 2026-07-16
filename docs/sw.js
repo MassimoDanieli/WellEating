@@ -3,7 +3,7 @@
 // Fresh content whenever online; full offline support (including the
 // live-fetched shopping list and meal plan) once visited at least once.
 
-const CACHE = "welleating-v1";
+const CACHE = "welleating-v2";
 
 const PRECACHE = [
   "./",
@@ -20,6 +20,13 @@ const PRECACHE = [
   "favicon.png",
   "icon-192.png",
   "manifest.webmanifest",
+  "it/",
+  "it/index.html",
+  "it/recipes.html",
+  "it/meal-plan.html",
+  "it/shopping.html",
+  "it/recipes.json",
+  "it/manifest.webmanifest",
 ];
 
 self.addEventListener("install", event => {

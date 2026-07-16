@@ -4,6 +4,25 @@
 
 let recipes = [];
 
+const LANG = document.documentElement.lang === "it" ? "it" : "en";
+const T = {
+  en: {
+    all: "All", open: "Open recipe", ingredients: "Ingredients", method: "Method",
+    note: "Kitchen note", source: "View source on GitHub \u2192", minutes: "minutes",
+    outOf: "out of 5",
+    error: "Couldn't load the recipe library right now. Try refreshing, or browse the recipes folder on GitHub.",
+    status: { "Production ready": "Production ready", "Tested": "Tested", "To test": "To test" },
+  },
+  it: {
+    all: "Tutte", open: "Apri ricetta", ingredients: "Ingredienti", method: "Preparazione",
+    note: "Nota di cucina", source: "Vedi il sorgente su GitHub \u2192", minutes: "minuti",
+    outOf: "su 5",
+    error: "Impossibile caricare il ricettario in questo momento. Riprova, oppure sfoglia la cartella recipes su GitHub.",
+    status: { "Production ready": "Production ready", "Tested": "Testata", "To test": "Da provare" },
+  },
+}[LANG];
+
+
 const state = { query: "", category: "All", status: "All" };
 const grid = document.querySelector("#recipeGrid");
 const resultCount = document.querySelector("#resultCount");
@@ -24,7 +43,7 @@ function buildChips(targetId, values, field) {
     const button = document.createElement("button");
     button.type = "button";
     button.className = `chip${value === "All" ? " selected" : ""}`;
-    button.textContent = value;
+    button.textContent = value === "All" ? T.all : (field === "status" ? (T.status[value] || value) : value);
     button.addEventListener("click", () => {
       state[field] = value;
       [...target.children].forEach(child => child.classList.toggle("selected", child === button));
@@ -48,12 +67,12 @@ function card(recipe) {
   const article = document.createElement("article");
   article.className = "recipe-card library-card";
   article.innerHTML = `
-    <div class="card-top"><div class="recipe-icon">${recipe.icon}</div><span class="status ${recipe.status.toLowerCase().replaceAll(" ", "-")}">${recipe.status}</span></div>
+    <div class="card-top"><div class="recipe-icon">${recipe.icon}</div><span class="status ${recipe.status.toLowerCase().replaceAll(" ", "-")}">${T.status[recipe.status] || recipe.status}</span></div>
     <p class="tag">${recipe.category}</p>
     <h2>${recipe.title}</h2>
     <p>${recipe.summary}</p>
     <div class="recipe-meta"><span>⏱ ${recipe.time} min</span><span>v${recipe.version}</span></div>
-    <button class="card-action" type="button">Open recipe <span>→</span></button>`;
+    <button class="card-action" type="button">${T.open} <span>→</span></button>`;
   article.querySelector("button").addEventListener("click", () => openRecipe(recipe, { updateUrl: true }));
   return article;
 }
@@ -66,16 +85,16 @@ function render() {
 }
 
 function openRecipe(recipe, { updateUrl = false } = {}) {
-  const stars = recipe.rating ? `<span class="rating" title="${recipe.rating} out of 5">${"★".repeat(recipe.rating)}${"☆".repeat(5 - recipe.rating)}</span>` : "";
+  const stars = recipe.rating ? `<span class="rating" title="${recipe.rating} ${T.outOf}">${"★".repeat(recipe.rating)}${"☆".repeat(5 - recipe.rating)}</span>` : "";
   dialogContent.innerHTML = `
     <div class="dialog-hero"><div class="dialog-icon">${recipe.icon}</div><div><p class="tag">${recipe.category} · v${recipe.version}</p><h2>${recipe.title}</h2><p>${recipe.summary}</p></div></div>
-    <div class="dialog-meta"><span>⏱ ${recipe.time} minutes</span><span>${recipe.status}</span>${stars ? `<span>${stars}</span>` : ""}</div>
+    <div class="dialog-meta"><span>⏱ ${recipe.time} ${T.minutes}</span><span>${T.status[recipe.status] || recipe.status}</span>${stars ? `<span>${stars}</span>` : ""}</div>
     <div class="recipe-detail-grid">
-      <section><h3>Ingredients</h3><ul>${recipe.ingredients.map(i => `<li>${i}</li>`).join("")}</ul></section>
-      <section><h3>Method</h3><ol>${recipe.method.map(step => `<li>${step}</li>`).join("")}</ol></section>
+      <section><h3>${T.ingredients}</h3><ul>${recipe.ingredients.map(i => `<li>${i}</li>`).join("")}</ul></section>
+      <section><h3>${T.method}</h3><ol>${recipe.method.map(step => `<li>${step}</li>`).join("")}</ol></section>
     </div>
-    ${recipe.note ? `<aside class="recipe-note"><strong>Kitchen note</strong><p>${recipe.note}</p></aside>` : ""}
-    <p class="dialog-source"><a href="${REPO_BLOB}${recipe.source}">View source on GitHub →</a></p>`;
+    ${recipe.note ? `<aside class="recipe-note"><strong>${T.note}</strong><p>${recipe.note}</p></aside>` : ""}
+    <p class="dialog-source"><a href="${REPO_BLOB}${recipe.source}">${T.source}</a></p>`;
   dialog.showModal();
 
   if (updateUrl) {
@@ -133,5 +152,5 @@ fetch("recipes.json")
   })
   .catch(() => {
     emptyState.hidden = false;
-    emptyState.textContent = "Couldn't load the recipe library right now. Try refreshing, or browse the recipes folder on GitHub.";
+    emptyState.textContent = T.error;
   });
