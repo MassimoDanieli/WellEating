@@ -191,3 +191,11 @@ dialog.addEventListener("click", event => { if (event.target === dialog) dialog.
 buildChips("#categoryFilters", unique("category"), "category");
 buildChips("#statusFilters", unique("status"), "status");
 render();
+
+// Deep-link support: recipes.html?open=frittata opens that recipe's dialog directly,
+// so links from the homepage (and anywhere else) can stay inside the site.
+const requestedId = new URLSearchParams(window.location.search).get("open");
+if (requestedId) {
+  const requested = recipes.find(r => r.id === requestedId);
+  if (requested) openRecipe(requested);
+}

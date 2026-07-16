@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The current WellEating shopping list, pulled live from the repository.">
+  <title>Shopping list · WellEating</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="subhero">
+    <nav class="nav container">
+      <a class="brand" href="index.html">WellEating</a>
+      <div class="nav-links">
+        <a href="recipes.html">Recipes</a>
+        <a class="active" href="shopping.html">Shopping list</a>
+        <a href="https://github.com/MassimoDanieli/WellEating">GitHub</a>
+      </div>
+    </nav>
+    <div class="container subhero-content">
+      <p class="eyebrow">Straight from the repo</p>
+      <h1>This week's shopping list.</h1>
+      <p class="intro">Pulled live from <code>pantry/shopping-list.md</code> — edit that file and this page updates itself.</p>
+    </div>
+  </header>
+
+  <main class="container shopping-page">
+    <p id="shoppingStatus" class="empty-state">Loading the current list…</p>
+    <section id="shoppingGrid" class="shopping-grid" aria-live="polite"></section>
+  </main>
+
+  <footer><div class="container footer-inner"><p><strong>WellEating</strong> — made with ☕, 🍳 and ChatGPT.</p><a href="https://github.com/MassimoDanieli/WellEating/blob/main/pantry/shopping-list.md">Edit on GitHub</a></div></footer>
+  <script src="shopping.js"></script>
+</body>
+</html>

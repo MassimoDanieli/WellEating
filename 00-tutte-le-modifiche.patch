@@ -1,0 +1,177 @@
+diff --git a/docs/index.html b/docs/index.html
+index 4039db8..dff0ace 100644
+--- a/docs/index.html
++++ b/docs/index.html
+@@ -24,7 +24,7 @@
+       <p class="intro">Fast, repeatable meals built around real ingredients, sensible portions and continuous improvement.</p>
+       <div class="actions">
+         <a class="button primary" href="recipes.html">Browse recipes</a>
+-        <a class="button secondary" href="https://github.com/MassimoDanieli/WellEating/blob/main/pantry/shopping-list.md">Shopping list</a>
++        <a class="button secondary" href="shopping.html">Shopping list</a>
+       </div>
+     </div>
+   </header>
+@@ -43,11 +43,11 @@
+         <h2>Tested recipes</h2>
+       </div>
+       <div class="recipe-grid">
+-        <a class="recipe-card" href="https://github.com/MassimoDanieli/WellEating/tree/main/recipes/fish"><div class="recipe-icon">🐟</div><p class="tag">Fish</p><h3>Salmon & vegetables</h3><p>Simple, filling and reliably quick.</p></a>
+-        <a class="recipe-card" href="https://github.com/MassimoDanieli/WellEating/tree/main/recipes/dinner"><div class="recipe-icon">🍳</div><p class="tag">Dinner</p><h3>Zucchini & Emmental frittata</h3><p>Caramelised onion, courgette and measured cheese.</p></a>
+-        <a class="recipe-card" href="https://github.com/MassimoDanieli/WellEating/tree/main/recipes/couscous"><div class="recipe-icon">🥣</div><p class="tag">Couscous</p><h3>Chickpea & harissa couscous</h3><p>Bright, spicy and balanced with lemon and yoghurt.</p></a>
+-        <a class="recipe-card" href="https://github.com/MassimoDanieli/WellEating/tree/main/recipes/vegetarian"><div class="recipe-icon">🌱</div><p class="tag">Vegetarian</p><h3>Dijon, honey & lemon tofu</h3><p>A fast, flavourful marinade.</p></a>
+-        <a class="recipe-card" href="https://github.com/MassimoDanieli/WellEating/tree/main/recipes/salads"><div class="recipe-icon">🥗</div><p class="tag">Salad</p><h3>Tuna salad</h3><p>A quick lunch with acidity, crunch and protein.</p></a>
++        <a class="recipe-card" href="recipes.html?open=salmon"><div class="recipe-icon">🐟</div><p class="tag">Fish</p><h3>Salmon & vegetables</h3><p>Simple, filling and reliably quick.</p></a>
++        <a class="recipe-card" href="recipes.html?open=frittata"><div class="recipe-icon">🍳</div><p class="tag">Dinner</p><h3>Zucchini & Emmental frittata</h3><p>Caramelised onion, courgette and measured cheese.</p></a>
++        <a class="recipe-card" href="recipes.html?open=couscous"><div class="recipe-icon">🥣</div><p class="tag">Couscous</p><h3>Chickpea & harissa couscous</h3><p>Bright, spicy and balanced with lemon and yoghurt.</p></a>
++        <a class="recipe-card" href="recipes.html?open=tofu"><div class="recipe-icon">🌱</div><p class="tag">Vegetarian</p><h3>Dijon, honey & lemon tofu</h3><p>A fast, flavourful marinade.</p></a>
++        <a class="recipe-card" href="recipes.html?open=tuna-salad"><div class="recipe-icon">🥗</div><p class="tag">Salad</p><h3>Tuna salad</h3><p>A quick lunch with acidity, crunch and protein.</p></a>
+         <a class="recipe-card" href="recipes.html"><div class="recipe-icon">📖</div><p class="tag">All recipes</p><h3>Open the cookbook</h3><p>See every tested recipe and experiment.</p></a>
+       </div>
+     </section>
+diff --git a/docs/recipes.html b/docs/recipes.html
+index 51b91ff..37fac5b 100644
+--- a/docs/recipes.html
++++ b/docs/recipes.html
+@@ -13,7 +13,7 @@
+       <a class="brand" href="index.html">WellEating</a>
+       <div class="nav-links">
+         <a class="active" href="recipes.html">Recipes</a>
+-        <a href="https://github.com/MassimoDanieli/WellEating/blob/main/pantry/shopping-list.md">Shopping list</a>
++        <a href="shopping.html">Shopping list</a>
+         <a href="https://github.com/MassimoDanieli/WellEating">GitHub</a>
+       </div>
+     </nav>
+diff --git a/docs/recipes.js b/docs/recipes.js
+index 8b4bf1c..3bbc012 100644
+--- a/docs/recipes.js
++++ b/docs/recipes.js
+@@ -191,3 +191,11 @@ dialog.addEventListener("click", event => { if (event.target === dialog) dialog.
+ buildChips("#categoryFilters", unique("category"), "category");
+ buildChips("#statusFilters", unique("status"), "status");
+ render();
++
++// Deep-link support: recipes.html?open=frittata opens that recipe's dialog directly,
++// so links from the homepage (and anywhere else) can stay inside the site.
++const requestedId = new URLSearchParams(window.location.search).get("open");
++if (requestedId) {
++  const requested = recipes.find(r => r.id === requestedId);
++  if (requested) openRecipe(requested);
++}
+diff --git a/docs/shopping.html b/docs/shopping.html
+new file mode 100644
+index 0000000..9133bda
+--- /dev/null
++++ b/docs/shopping.html
+@@ -0,0 +1,35 @@
++<!doctype html>
++<html lang="en">
++<head>
++  <meta charset="utf-8">
++  <meta name="viewport" content="width=device-width, initial-scale=1">
++  <meta name="description" content="The current WellEating shopping list, pulled live from the repository.">
++  <title>Shopping list · WellEating</title>
++  <link rel="stylesheet" href="styles.css">
++</head>
++<body>
++  <header class="subhero">
++    <nav class="nav container">
++      <a class="brand" href="index.html">WellEating</a>
++      <div class="nav-links">
++        <a href="recipes.html">Recipes</a>
++        <a class="active" href="shopping.html">Shopping list</a>
++        <a href="https://github.com/MassimoDanieli/WellEating">GitHub</a>
++      </div>
++    </nav>
++    <div class="container subhero-content">
++      <p class="eyebrow">Straight from the repo</p>
++      <h1>This week's shopping list.</h1>
++      <p class="intro">Pulled live from <code>pantry/shopping-list.md</code> — edit that file and this page updates itself.</p>
++    </div>
++  </header>
++
++  <main class="container shopping-page">
++    <p id="shoppingStatus" class="empty-state">Loading the current list…</p>
++    <section id="shoppingGrid" class="shopping-grid" aria-live="polite"></section>
++  </main>
++
++  <footer><div class="container footer-inner"><p><strong>WellEating</strong> — made with ☕, 🍳 and ChatGPT.</p><a href="https://github.com/MassimoDanieli/WellEating/blob/main/pantry/shopping-list.md">Edit on GitHub</a></div></footer>
++  <script src="shopping.js"></script>
++</body>
++</html>
+diff --git a/docs/shopping.js b/docs/shopping.js
+new file mode 100644
+index 0000000..390a1bb
+--- /dev/null
++++ b/docs/shopping.js
+@@ -0,0 +1,56 @@
++const SOURCE_URL = "https://raw.githubusercontent.com/MassimoDanieli/WellEating/main/pantry/shopping-list.md";
++
++const statusEl = document.querySelector("#shoppingStatus");
++const grid = document.querySelector("#shoppingGrid");
++
++function parseShoppingList(markdown) {
++  const lines = markdown.split("\n");
++  const sections = [];
++  let current = null;
++
++  for (const rawLine of lines) {
++    const line = rawLine.trim();
++    if (line.startsWith("## ")) {
++      current = { title: line.replace("## ", ""), items: [] };
++      sections.push(current);
++    } else if (/^- \[( |x)\]/i.test(line) && current) {
++      const checked = /^- \[x\]/i.test(line);
++      const text = line.replace(/^- \[( |x)\]\s*/i, "");
++      current.items.push({ text, checked });
++    }
++  }
++  return sections;
++}
++
++function renderSections(sections) {
++  grid.replaceChildren(...sections.map(section => {
++    const article = document.createElement("article");
++    article.className = "recipe-card shopping-card";
++    const remaining = section.items.filter(i => !i.checked).length;
++    article.innerHTML = `
++      <p class="tag">${remaining} to buy</p>
++      <h3>${section.title}</h3>
++      <ul class="shopping-items">
++        ${section.items.map(item => `<li class="${item.checked ? "checked" : ""}"><span class="box" aria-hidden="true"></span>${item.text}</li>`).join("")}
++      </ul>`;
++    return article;
++  }));
++}
++
++fetch(SOURCE_URL)
++  .then(response => {
++    if (!response.ok) throw new Error(`GitHub returned ${response.status}`);
++    return response.text();
++  })
++  .then(markdown => {
++    const sections = parseShoppingList(markdown);
++    if (!sections.length) {
++      statusEl.textContent = "The list is currently empty. Time to plan a shop.";
++      return;
++    }
++    statusEl.hidden = true;
++    renderSections(sections);
++  })
++  .catch(() => {
++    statusEl.textContent = "Couldn't load the live list right now — open it directly on GitHub instead.";
++  });
+diff --git a/docs/styles.css b/docs/styles.css
+index b8266da..22cd123 100644
+--- a/docs/styles.css
++++ b/docs/styles.css
+@@ -6,5 +6,10 @@
+ @media(max-width:620px){.subhero-content{padding:45px 0 60px}.filter-panel{grid-template-columns:1fr;padding:18px}.search-box{grid-column:auto}.recipe-library{grid-template-columns:1fr}.library-card{min-height:0}.dialog-hero{grid-template-columns:1fr;padding:55px 25px 25px}.dialog-icon{font-size:2.5rem}.dialog-meta{padding:18px 25px 0}.recipe-detail-grid{grid-template-columns:1fr;gap:15px;padding:20px 25px}.recipe-note{margin:0 25px 30px}}
+ 
+ 
++/* Shopping list */
++.shopping-page{padding:55px 0 100px}.shopping-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.shopping-card{cursor:default}.shopping-card:hover{transform:none;box-shadow:0 12px 35px rgba(20,45,37,.08)}.shopping-items{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:9px}.shopping-items li{display:flex;align-items:center;gap:10px;color:var(--ink)}.shopping-items li.checked{color:var(--muted);text-decoration:line-through}.shopping-items .box{width:16px;height:16px;flex:0 0 16px;border-radius:5px;border:2px solid var(--line)}.shopping-items li.checked .box{background:var(--accent);border-color:var(--accent)}
++@media(max-width:900px){.shopping-grid{grid-template-columns:repeat(2,1fr)}}
++@media(max-width:620px){.shopping-grid{grid-template-columns:1fr}}
++
+ /* Project status */
+ .project-badge{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px;padding:9px 14px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(255,255,255,.08);font-weight:800;font-size:.86rem;backdrop-filter:blur(6px)}.project-badge span{font-weight:600;color:#dce9e4}@media(max-width:560px){.project-badge{border-radius:18px;align-items:flex-start}.project-badge span{display:block;width:100%;padding-left:28px}}
