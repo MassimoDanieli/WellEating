@@ -20,6 +20,8 @@
 .rating{color:var(--accent);letter-spacing:2px}.dialog-source{padding:0 52px 40px;margin:0}.dialog-source a{color:var(--accent);font-weight:800;text-decoration:none}
 @media(max-width:620px){.dialog-source{padding:0 25px 30px}}
 
+.site-version{font-size:.75rem;font-weight:700;opacity:.6;margin-left:4px}
+
 /* Mobile app experience */
 .tabbar{display:none}
 @media(max-width:620px){

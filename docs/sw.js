@@ -3,7 +3,7 @@
 // Fresh content whenever online; full offline support (including the
 // live-fetched shopping list and meal plan) once visited at least once.
 
-const CACHE = "welleating-v2";
+const CACHE = "welleating-v3";
 
 const PRECACHE = [
   "./",
@@ -20,6 +20,10 @@ const PRECACHE = [
   "favicon.png",
   "icon-192.png",
   "manifest.webmanifest",
+  "version.js",
+  "config.js",
+  "theme.css",
+  "home.js",
   "it/",
   "it/index.html",
   "it/recipes.html",

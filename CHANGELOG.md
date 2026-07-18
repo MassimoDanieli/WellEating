@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.6.1 - 2026-07-16
+
+- The site now displays its version in the footer of every page. The
+  value is generated into `docs/version.js` from the top entry of this
+  changelog by the build pipeline — bump the changelog and the site
+  version updates itself.
+
 ## 0.6.0 - 2026-07-16
 
 Self-hosted distribution.

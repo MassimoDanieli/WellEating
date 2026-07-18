@@ -50,6 +50,8 @@ ROOT = Path(__file__).resolve().parent.parent
 RECIPES_DIR = ROOT / "recipes"
 OUTPUT = ROOT / "docs" / "recipes.json"
 OUTPUT_IT = ROOT / "docs" / "it" / "recipes.json"
+CHANGELOG = ROOT / "CHANGELOG.md"
+VERSION_JS = ROOT / "docs" / "version.js"
 
 CATEGORY_BY_FOLDER = {
     "fish": "Fish",
@@ -187,6 +189,25 @@ def build(lang="en", recipes_dir=None):
     return json.dumps({"recipes": recipes}, indent=2, ensure_ascii=False) + "\n"
 
 
+def site_version():
+    """Read the current site version from the top entry of CHANGELOG.md."""
+    m = re.search(r"^## +(\d+\.\d+\.\d+)", CHANGELOG.read_text(encoding="utf-8"), re.MULTILINE)
+    return m.group(1) if m else "0.0.0"
+
+
+def build_version_js():
+    version = site_version()
+    return (
+        "// Generated from CHANGELOG.md by scripts/build_recipes.py - do not edit.\n"
+        f'window.WELLEATING_VERSION = "{version}";\n'
+        "document.addEventListener(\"DOMContentLoaded\", () => {\n"
+        "  document.querySelectorAll(\"[data-version]\").forEach(el => {\n"
+        "    el.textContent = \"v\" + window.WELLEATING_VERSION;\n"
+        "  });\n"
+        "});\n"
+    )
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true", help="verify docs/recipes.json is up to date")
@@ -201,6 +222,7 @@ def main():
     outputs = {
         out_en: build("en", args.source),
         out_it: build("it", args.source),
+        (args.output_dir / "version.js") if args.output_dir else VERSION_JS: build_version_js(),
     }
 
     if args.check:
@@ -216,9 +238,11 @@ def main():
     for path, generated in outputs.items():
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(generated, encoding="utf-8")
-        count = generated.count('"id":')
         shown = path.relative_to(ROOT) if path.is_relative_to(ROOT) else path
-        print(f"Wrote {shown} with {count} recipes.")
+        if path.suffix == ".json":
+            print(f"Wrote {shown} with {generated.count(chr(34) + 'id' + chr(34) + ':')} recipes.")
+        else:
+            print(f"Wrote {shown}.")
 
 
 if __name__ == "__main__":

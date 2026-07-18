@@ -3,4 +3,4 @@ name: welleating
 description: Self-hosted WellEating — a version-controlled cookbook site. Bring your own recipes.
 type: application
 version: 0.1.0
-appVersion: "0.6.0"
+appVersion: "0.6.1"

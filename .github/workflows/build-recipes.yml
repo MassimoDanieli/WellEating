@@ -6,6 +6,7 @@ on:
     paths:
       - "recipes/**"
       - "scripts/build_recipes.py"
+      - "CHANGELOG.md"
   workflow_dispatch:
 
 permissions:
@@ -26,12 +27,12 @@ jobs:
 
       - name: Commit the regenerated JSON if it changed
         run: |
-          if git diff --quiet docs/recipes.json docs/it/recipes.json; then
+          if git diff --quiet docs/recipes.json docs/it/recipes.json docs/version.js; then
             echo "recipes.json already up to date."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/recipes.json docs/it/recipes.json
+          git add docs/recipes.json docs/it/recipes.json docs/version.js
           git commit -m "Rebuild recipes.json from markdown sources"
           git push
