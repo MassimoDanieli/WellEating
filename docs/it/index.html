@@ -23,6 +23,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../theme.css">
+  <script src="../config.js"></script>
 </head>
 <body>
   <header class="hero">
@@ -61,14 +63,7 @@
         <p class="eyebrow">I preferiti production-ready</p>
         <h2>Ricette testate</h2>
       </div>
-      <div class="recipe-grid">
-        <a class="recipe-card" href="recipes.html?open=salmon-air-fryer-vegetables"><div class="recipe-icon">🐟</div><p class="tag">Pesce</p><h3>Salmone e verdure</h3><p>Semplice, sostanzioso e sempre veloce.</p></a>
-        <a class="recipe-card" href="recipes.html?open=zucchini-onion-emmental-frittata"><div class="recipe-icon">🍳</div><p class="tag">Cena</p><h3>Frittata di zucchine ed Emmental</h3><p>Cipolla caramellata, zucchine e formaggio nella giusta misura.</p></a>
-        <a class="recipe-card" href="recipes.html?open=moroccan-chickpea-harissa-couscous"><div class="recipe-icon">🥣</div><p class="tag">Couscous</p><h3>Couscous con ceci e harissa</h3><p>Vivace, speziato e bilanciato da limone e yogurt.</p></a>
-        <a class="recipe-card" href="recipes.html?open=dijon-honey-lemon-tofu"><div class="recipe-icon">🌱</div><p class="tag">Vegetariano</p><h3>Tofu con Digione, miele e limone</h3><p>Una marinatura veloce e piena di sapore.</p></a>
-        <a class="recipe-card" href="recipes.html?open=tuna-mustard-salad"><div class="recipe-icon">🥗</div><p class="tag">Insalata</p><h3>Insalata di tonno</h3><p>Un pranzo veloce con acidità, croccantezza e proteine.</p></a>
-        <a class="recipe-card" href="recipes.html"><div class="recipe-icon">📖</div><p class="tag">Tutte le ricette</p><h3>Apri il ricettario</h3><p>Tutte le ricette testate e gli esperimenti.</p></a>
-      </div>
+      <div id="homeRecipes" class="recipe-grid"></div>
     </section>
 
     <section id="workflow" class="workflow">
@@ -93,5 +88,6 @@
     <a href="../" lang="en"><span aria-hidden="true">🌐</span>EN</a>
   </nav>
   <script src="../pwa.js" defer></script>
+  <script src="../home.js" defer></script>
 </body>
 </html>

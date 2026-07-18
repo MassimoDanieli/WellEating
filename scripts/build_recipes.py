@@ -49,6 +49,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 RECIPES_DIR = ROOT / "recipes"
 OUTPUT = ROOT / "docs" / "recipes.json"
+OUTPUT_IT = ROOT / "docs" / "it" / "recipes.json"
 
 CATEGORY_BY_FOLDER = {
     "fish": "Fish",
@@ -144,7 +145,7 @@ def parse_recipe(path):
         "ingredients": list_items(sections.get("Ingredients", "")),
         "method": list_items(sections.get("Method", "")),
         "note": " ".join(notes),
-        "source": str(path.relative_to(ROOT)),
+        "source": str(path.relative_to(ROOT)) if path.is_relative_to(ROOT) else str(path),
     }
 
 
@@ -161,8 +162,9 @@ CATEGORY_IT = {
 }
 
 
-def build(lang="en"):
-    paths = sorted(p for p in RECIPES_DIR.glob("**/*.md") if not p.name.endswith(".it.md"))
+def build(lang="en", recipes_dir=None):
+    recipes_dir = recipes_dir or RECIPES_DIR
+    paths = sorted(p for p in recipes_dir.glob("**/*.md") if not p.name.endswith(".it.md"))
     recipes = []
     for path in paths:
         recipe = parse_recipe(path)
@@ -188,11 +190,17 @@ def build(lang="en"):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true", help="verify docs/recipes.json is up to date")
+    parser.add_argument("--source", type=Path, default=None,
+                        help="recipes directory to read (default: <repo>/recipes)")
+    parser.add_argument("--output-dir", type=Path, default=None,
+                        help="write recipes.json and it/recipes.json under this directory (default: <repo>/docs)")
     args = parser.parse_args()
 
+    out_en = (args.output_dir / "recipes.json") if args.output_dir else OUTPUT
+    out_it = (args.output_dir / "it" / "recipes.json") if args.output_dir else OUTPUT_IT
     outputs = {
-        OUTPUT: build("en"),
-        ROOT / "docs" / "it" / "recipes.json": build("it"),
+        out_en: build("en", args.source),
+        out_it: build("it", args.source),
     }
 
     if args.check:
@@ -209,7 +217,8 @@ def main():
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(generated, encoding="utf-8")
         count = generated.count('"id":')
-        print(f"Wrote {path.relative_to(ROOT)} with {count} recipes.")
+        shown = path.relative_to(ROOT) if path.is_relative_to(ROOT) else path
+        print(f"Wrote {shown} with {count} recipes.")
 
 
 if __name__ == "__main__":

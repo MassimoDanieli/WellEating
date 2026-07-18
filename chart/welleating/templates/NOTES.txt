@@ -1,0 +1,7 @@
+WellEating deployed.
+
+Theme: {{ .Values.theme.name }}
+Content: {{ if .Values.content.repo }}{{ .Values.content.repo }}{{ else if .Values.content.existingClaim }}PVC {{ .Values.content.existingClaim }}{{ else }}sample cookbook (bring your own via content.repo or content.existingClaim){{ end }}
+
+Port-forward to try it:
+  kubectl port-forward svc/{{ include "welleating.fullname" . }} 8080:{{ .Values.service.port }}

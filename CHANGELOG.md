@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.6.0 - 2026-07-16
+
+Self-hosted distribution.
+
+- Dockerfile and entrypoint: the container builds the site at startup
+  from user-provided content (volume mount at /content or CONTENT_REPO
+  git clone), falling back to a sample cookbook that documents the
+  format. Shopping list and meal plan are served locally from the
+  container instead of GitHub.
+- Four selectable themes (forest, ocean, terracotta, slate) via THEME
+  env var plus optional ACCENT_COLOR override; the stylesheet palette
+  was fully promoted to CSS variables to make this possible.
+- Helm chart under chart/welleating with content, theme, ingress and
+  resource configuration.
+- Homepage favourites are now rendered dynamically from recipes.json,
+  so fresh installs show their own recipes (or a friendly empty state)
+  instead of hardcoded cards.
+- Deployment guide in DEPLOY.md.
+
 ## 0.5.0 - 2026-07-16
 
 Recipe library expansion.

@@ -1,4 +1,5 @@
-const SOURCE_URL = "https://raw.githubusercontent.com/MassimoDanieli/WellEating/main/pantry/shopping-list.md";
+const SOURCE_URL = (window.WELLEATING && window.WELLEATING.shopping) ||
+  "https://raw.githubusercontent.com/MassimoDanieli/WellEating/main/pantry/shopping-list.md";
 const TICKS_KEY = "welleating-shopping-ticks";
 
 const LANG = document.documentElement.lang === "it" ? "it" : "en";

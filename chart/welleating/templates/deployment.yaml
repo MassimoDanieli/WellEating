@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "welleating.fullname" . }}
+  labels:
+    {{- include "welleating.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "welleating.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "welleating.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: welleating
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 80
+              name: http
+          env:
+            - name: THEME
+              value: {{ .Values.theme.name | quote }}
+            {{- with .Values.theme.accentColor }}
+            - name: ACCENT_COLOR
+              value: {{ . | quote }}
+            {{- end }}
+            {{- with .Values.content.repo }}
+            - name: CONTENT_REPO
+              value: {{ . | quote }}
+            {{- end }}
+            {{- with .Values.content.branch }}
+            - name: CONTENT_BRANCH
+              value: {{ . | quote }}
+            {{- end }}
+          {{- if .Values.content.existingClaim }}
+          volumeMounts:
+            - name: content
+              mountPath: /content
+              readOnly: true
+          {{- end }}
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- if .Values.content.existingClaim }}
+      volumes:
+        - name: content
+          persistentVolumeClaim:
+            claimName: {{ .Values.content.existingClaim }}
+      {{- end }}

@@ -1,0 +1,40 @@
+replicaCount: 1
+
+image:
+  repository: welleating
+  tag: latest
+  pullPolicy: IfNotPresent
+
+# Cookbook content. Choose ONE:
+content:
+  # 1. Git repository cloned at pod start (public repos only)
+  repo: ""            # e.g. https://github.com/you/your-cookbook
+  branch: main
+  # 2. Existing PVC mounted at /content (leave repo empty)
+  existingClaim: ""
+
+theme:
+  name: forest        # forest | ocean | terracotta | slate
+  accentColor: ""     # optional accent override, e.g. "#c2185b"
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: welleating.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+
+resources:
+  requests:
+    cpu: 10m
+    memory: 32Mi
+  limits:
+    memory: 128Mi

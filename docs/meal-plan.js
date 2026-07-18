@@ -1,4 +1,5 @@
-const SOURCE_URL = "https://raw.githubusercontent.com/MassimoDanieli/WellEating/main/meal-plans/current-week.md";
+const SOURCE_URL = (window.WELLEATING && window.WELLEATING.mealplan) ||
+  "https://raw.githubusercontent.com/MassimoDanieli/WellEating/main/meal-plans/current-week.md";
 
 const LANG = document.documentElement.lang === "it" ? "it" : "en";
 const T = {

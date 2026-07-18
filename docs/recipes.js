@@ -30,7 +30,9 @@ const emptyState = document.querySelector("#emptyState");
 const dialog = document.querySelector("#recipeDialog");
 const dialogContent = document.querySelector("#dialogContent");
 
-const REPO_BLOB = "https://github.com/MassimoDanieli/WellEating/blob/main/";
+const REPO_BLOB = (window.WELLEATING && "repoBlob" in window.WELLEATING)
+  ? window.WELLEATING.repoBlob
+  : "https://github.com/MassimoDanieli/WellEating/blob/main/";
 
 function unique(field) {
   return ["All", ...new Set(recipes.map(r => r[field]))];
@@ -94,7 +96,7 @@ function openRecipe(recipe, { updateUrl = false } = {}) {
       <section><h3>${T.method}</h3><ol>${recipe.method.map(step => `<li>${step}</li>`).join("")}</ol></section>
     </div>
     ${recipe.note ? `<aside class="recipe-note"><strong>${T.note}</strong><p>${recipe.note}</p></aside>` : ""}
-    <p class="dialog-source"><a href="${REPO_BLOB}${recipe.source}">${T.source}</a></p>`;
+    ${REPO_BLOB ? `<p class="dialog-source"><a href="${REPO_BLOB}${recipe.source}">${T.source}</a></p>` : ""}`;
   dialog.showModal();
 
   if (updateUrl) {

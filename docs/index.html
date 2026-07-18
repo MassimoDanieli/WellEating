@@ -22,6 +22,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="theme.css">
+  <script src="config.js"></script>
 </head>
 <body>
   <header class="hero">
@@ -60,14 +62,7 @@
         <p class="eyebrow">Production-ready favourites</p>
         <h2>Tested recipes</h2>
       </div>
-      <div class="recipe-grid">
-        <a class="recipe-card" href="recipes.html?open=salmon-air-fryer-vegetables"><div class="recipe-icon">🐟</div><p class="tag">Fish</p><h3>Salmon & vegetables</h3><p>Simple, filling and reliably quick.</p></a>
-        <a class="recipe-card" href="recipes.html?open=zucchini-onion-emmental-frittata"><div class="recipe-icon">🍳</div><p class="tag">Dinner</p><h3>Zucchini & Emmental frittata</h3><p>Caramelised onion, courgette and measured cheese.</p></a>
-        <a class="recipe-card" href="recipes.html?open=moroccan-chickpea-harissa-couscous"><div class="recipe-icon">🥣</div><p class="tag">Couscous</p><h3>Chickpea & harissa couscous</h3><p>Bright, spicy and balanced with lemon and yoghurt.</p></a>
-        <a class="recipe-card" href="recipes.html?open=dijon-honey-lemon-tofu"><div class="recipe-icon">🌱</div><p class="tag">Vegetarian</p><h3>Dijon, honey & lemon tofu</h3><p>A fast, flavourful marinade.</p></a>
-        <a class="recipe-card" href="recipes.html?open=tuna-mustard-salad"><div class="recipe-icon">🥗</div><p class="tag">Salad</p><h3>Tuna salad</h3><p>A quick lunch with acidity, crunch and protein.</p></a>
-        <a class="recipe-card" href="recipes.html"><div class="recipe-icon">📖</div><p class="tag">All recipes</p><h3>Open the cookbook</h3><p>See every tested recipe and experiment.</p></a>
-      </div>
+      <div id="homeRecipes" class="recipe-grid"></div>
     </section>
 
     <section id="workflow" class="workflow">
@@ -92,5 +87,6 @@
     <a href="it/" lang="it"><span aria-hidden="true">🌐</span>IT</a>
   </nav>
   <script src="pwa.js" defer></script>
+  <script src="home.js" defer></script>
 </body>
 </html>

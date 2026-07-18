@@ -1,0 +1,12 @@
+services:
+  welleating:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      # Point this at your own cookbook directory (recipes/, pantry/, meal-plans/)
+      - ./:/content:ro
+    environment:
+      THEME: forest        # forest | ocean | terracotta | slate
+      # ACCENT_COLOR: "#c2185b"
+      # CONTENT_REPO: https://github.com/you/your-cookbook
