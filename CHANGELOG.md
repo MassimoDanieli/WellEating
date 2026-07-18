@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.7.0 - 2026-07-16
+
+Release automation.
+
+- New Release workflow: pushing a version tag builds and publishes the
+  multi-arch Docker image to GHCR, packages the Helm chart, pushes it as
+  an OCI artifact and attaches the chart .tgz to the GitHub Release.
+- Deployment guide updated with the published image and chart
+  instructions.
+
 ## 0.6.1 - 2026-07-16
 
 - The site now displays its version in the footer of every page. The

@@ -15,7 +15,23 @@ pantry/shopping-list.md               # optional
 meal-plans/current-week.md            # optional
 ```
 
-## Docker
+## Published images and charts
+
+Every version tag publishes ready-made artefacts, so building locally is
+optional:
+
+```bash
+# Docker image from GHCR (multi-arch: amd64 + arm64)
+docker run -p 8080:80 -v ./my-cookbook:/content ghcr.io/massimodanieli/welleating:latest
+
+# Helm chart as an OCI artifact
+helm install cookbook oci://ghcr.io/massimodanieli/charts/welleating \
+  --set content.repo=https://github.com/you/your-cookbook
+```
+
+The chart `.tgz` is also attached to each GitHub Release.
+
+## Docker (building locally)
 
 ```bash
 docker build -t welleating .
