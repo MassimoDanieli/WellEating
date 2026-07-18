@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.5.0 - 2026-07-16
+
+Recipe library expansion.
+
+- Library grown from 8 to 17 recipes: the full ideas backlog promoted as
+  "To test" (mushroom and Gruyère pasta, mushroom risotto, French onion
+  soup, salmon and herb couscous, mushroom frittata, courgette and lemon
+  pasta, harissa shakshuka) plus two breakfasts.
+- New Breakfast and Soup categories.
+- Every new recipe ships with its Italian translation.
+- Ideas backlog cleared; promoted entries now live in `recipes/`.
+
 ## 0.4.0 - 2026-07-16
 
 Italian version of the site.

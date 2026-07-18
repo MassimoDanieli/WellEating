@@ -220,6 +220,62 @@
       "source": "recipes/salads/tuna-mustard-salad.md"
     },
     {
+      "id": "avocado-egg-toast",
+      "title": "Avocado and Egg on Toast",
+      "category": "Breakfast",
+      "status": "To test",
+      "version": "1.0",
+      "time": 10,
+      "icon": "🥐",
+      "summary": "Wholemeal toast, half an avocado and one properly cooked egg.",
+      "rating": null,
+      "ingredients": [
+        "1 slice wholemeal bread",
+        "1/2 ripe avocado",
+        "1 egg",
+        "Juice of 1/4 lemon",
+        "Chilli flakes",
+        "Black pepper"
+      ],
+      "method": [
+        "Toast the bread.",
+        "Mash the avocado with the lemon juice and pepper.",
+        "Poach or fry the egg with minimal oil.",
+        "Assemble and finish with chilli flakes."
+      ],
+      "note": "Half an avocado is the portion; the other half keeps with its stone and lemon. The lemon is not optional; it lifts the whole thing.",
+      "source": "recipes/breakfast/avocado-egg-toast.md"
+    },
+    {
+      "id": "salmon-lemon-herb-couscous",
+      "title": "Couscous with Salmon, Lemon and Herbs",
+      "category": "Couscous",
+      "status": "To test",
+      "version": "1.0",
+      "time": 20,
+      "icon": "🥣",
+      "summary": "Air-fryer salmon flaked through bright, herby couscous.",
+      "rating": null,
+      "ingredients": [
+        "80 g dry couscous, prepared and fluffed",
+        "150 g salmon fillet",
+        "1 spring onion, sliced",
+        "Zest and juice of 1/2 lemon",
+        "Fresh parsley and dill",
+        "1 teaspoon extra virgin olive oil",
+        "Black pepper"
+      ],
+      "method": [
+        "Air fry the salmon at 190 C for eight to ten minutes.",
+        "Prepare the couscous with the lemon zest.",
+        "Flake the salmon into the couscous.",
+        "Add the spring onion, herbs, oil and lemon juice.",
+        "Finish with black pepper."
+      ],
+      "note": "Same salmon timing as the air-fryer salmon recipe: remove it slightly early. The zest goes in the couscous water; the juice goes in at the end.",
+      "source": "recipes/couscous/salmon-lemon-herb-couscous.md"
+    },
+    {
       "id": "eggs-in-tomato-sauce",
       "title": "Eggs in Tomato Sauce",
       "category": "Dinner",
@@ -251,6 +307,223 @@
       ],
       "note": "",
       "source": "recipes/dinner/eggs-in-tomato-sauce.md"
+    },
+    {
+      "id": "french-onion-soup-gruyere",
+      "title": "French Onion Soup with Gruyère",
+      "category": "Soup",
+      "status": "To test",
+      "version": "1.0",
+      "time": 50,
+      "icon": "🍲",
+      "summary": "Slow caramelised onions using the water-splash technique, topped with a Gruyère toast.",
+      "rating": null,
+      "ingredients": [
+        "2 large onions, thinly sliced",
+        "1 teaspoon extra virgin olive oil",
+        "1/2 teaspoon honey",
+        "500 ml beef or vegetable stock",
+        "Optional splash of white wine",
+        "1 slice wholemeal bread",
+        "30 g Gruyère, grated",
+        "Black pepper",
+        "Thyme"
+      ],
+      "method": [
+        "Cook the onions slowly in the oil for 20-25 minutes.",
+        "Add small splashes of water whenever they start to catch.",
+        "Add the honey halfway through.",
+        "Deglaze with the wine, if using.",
+        "Add the stock and thyme; simmer for 15 minutes.",
+        "Toast the bread, top with Gruyère and grill until melted.",
+        "Serve the soup with the toast on top and black pepper."
+      ],
+      "note": "Same onion technique as the frittata, just scaled up and slower. The onions decide the whole soup; do not rush the first stage.",
+      "source": "recipes/soups/french-onion-soup-gruyere.md"
+    },
+    {
+      "id": "greek-yoghurt-oats-honey",
+      "title": "Greek Yoghurt with Oats, Honey and Fruit",
+      "category": "Breakfast",
+      "status": "To test",
+      "version": "1.0",
+      "time": 5,
+      "icon": "🥐",
+      "summary": "A five-minute breakfast with protein, slow carbs and just enough honey.",
+      "rating": null,
+      "ingredients": [
+        "150 g Greek yoghurt",
+        "30 g oats",
+        "1 teaspoon honey",
+        "A handful of berries or half a banana",
+        "Cinnamon",
+        "Optional few walnuts"
+      ],
+      "method": [
+        "Stir the oats into the yoghurt.",
+        "Rest for five minutes, or overnight in the fridge.",
+        "Top with the fruit, honey and cinnamon."
+      ],
+      "note": "Overnight, the oats soften completely and it eats like a dessert. Measure the honey; it is the easiest place for sugar to creep.",
+      "source": "recipes/breakfast/greek-yoghurt-oats-honey.md"
+    },
+    {
+      "id": "harissa-shakshuka",
+      "title": "Harissa Shakshuka",
+      "category": "Dinner",
+      "status": "To test",
+      "version": "1.0",
+      "time": 30,
+      "icon": "🍳",
+      "summary": "The eggs-in-tomato formula pushed towards North Africa: harissa, cumin, red pepper and cooling yoghurt.",
+      "rating": null,
+      "ingredients": [
+        "3 eggs",
+        "200-250 ml passata",
+        "1/2 onion",
+        "1/2 red pepper, sliced",
+        "1 garlic clove",
+        "1 teaspoon harissa",
+        "1/2 teaspoon ground cumin",
+        "1 teaspoon extra virgin olive oil",
+        "1 tablespoon Greek yoghurt",
+        "Fresh parsley",
+        "1 slice of bread"
+      ],
+      "method": [
+        "Soften the onion and pepper in the oil, with splashes of water.",
+        "Add the garlic for 30 seconds, then harissa and cumin.",
+        "Add the passata and simmer for 10-15 minutes.",
+        "Make three wells and crack in the eggs.",
+        "Cover and cook for five to seven minutes.",
+        "Top with yoghurt and parsley; serve with the bread."
+      ],
+      "note": "The yoghurt balances the harissa, as in the couscous. Same base as eggs in tomato sauce; the spices do the travelling.",
+      "source": "recipes/dinner/harissa-shakshuka.md"
+    },
+    {
+      "id": "mushroom-risotto",
+      "title": "Mushroom Risotto",
+      "category": "Dinner",
+      "status": "To test",
+      "version": "1.0",
+      "time": 35,
+      "icon": "🍳",
+      "summary": "A proper risotto finished with Parmesan and a spoon of stock instead of butter.",
+      "rating": null,
+      "ingredients": [
+        "70 g arborio rice",
+        "150 g chestnut mushrooms, sliced",
+        "1/2 onion, finely chopped",
+        "1 garlic clove",
+        "500 ml hot vegetable stock",
+        "1 teaspoon extra virgin olive oil",
+        "15 g Parmesan, grated",
+        "Black pepper",
+        "Fresh parsley"
+      ],
+      "method": [
+        "Brown the mushrooms first and set them aside.",
+        "Soften the onion in the oil, adding splashes of water as needed.",
+        "Add the garlic for 30 seconds, then the rice for one minute.",
+        "Add the hot stock a ladle at a time, stirring often.",
+        "Return the mushrooms for the last five minutes.",
+        "Off the heat, beat in the Parmesan with a final spoon of stock.",
+        "Rest for two minutes, then finish with parsley and pepper."
+      ],
+      "note": "The final beating with Parmesan and stock replaces the usual butter. The stock must be hot; cold stock stalls the cooking.",
+      "source": "recipes/dinner/mushroom-risotto.md"
+    },
+    {
+      "id": "mushroom-gruyere-frittata",
+      "title": "Mushroom and Gruyère Frittata",
+      "category": "Dinner",
+      "status": "To test",
+      "version": "1.0",
+      "time": 25,
+      "icon": "🍳",
+      "summary": "The frittata formula with browned mushrooms, thyme and Gruyère.",
+      "rating": null,
+      "ingredients": [
+        "3 eggs",
+        "150 g chestnut mushrooms, sliced",
+        "1/2 onion, thinly sliced",
+        "25 g Gruyère, grated",
+        "1 teaspoon extra virgin olive oil",
+        "Thyme",
+        "Black pepper"
+      ],
+      "method": [
+        "Brown the mushrooms in the oil and set aside.",
+        "Soften the onion in the same pan, using splashes of water.",
+        "Return the mushrooms with the thyme.",
+        "Beat the eggs with pepper and most of the Gruyère.",
+        "Pour in, lower the heat, cover and cook until nearly set.",
+        "Flip briefly, or grill only if the pan is oven-safe."
+      ],
+      "note": "Same structure as the courgette frittata; only the filling changes. Brown the mushrooms properly first or they will water down the eggs.",
+      "source": "recipes/dinner/mushroom-gruyere-frittata.md"
+    },
+    {
+      "id": "courgette-lemon-pasta",
+      "title": "Pasta with Courgette and Lemon",
+      "category": "Dinner",
+      "status": "To test",
+      "version": "1.0",
+      "time": 25,
+      "icon": "🍳",
+      "summary": "Courgette cooked down until almost creamy, lifted with lemon and Parmesan.",
+      "rating": null,
+      "ingredients": [
+        "75 g short pasta",
+        "1 large courgette, half thinly sliced, half grated",
+        "1 garlic clove",
+        "Zest and juice of 1/2 lemon",
+        "1 teaspoon extra virgin olive oil",
+        "15 g Parmesan, grated",
+        "Black pepper",
+        "Fresh basil, optional"
+      ],
+      "method": [
+        "Cook the pasta; keep a cup of the water.",
+        "Cook the sliced courgette in the oil until golden.",
+        "Add the grated courgette and garlic; cook until soft and almost creamy.",
+        "Add the pasta with a splash of its water and the lemon zest.",
+        "Off the heat, add the Parmesan and lemon juice.",
+        "Finish with pepper and basil."
+      ],
+      "note": "The grated half melts into a sauce; the sliced half keeps texture. Lemon juice off the heat only, or it turns bitter.",
+      "source": "recipes/dinner/courgette-lemon-pasta.md"
+    },
+    {
+      "id": "pasta-mushrooms-gruyere",
+      "title": "Pasta with Mushrooms and Gruyère",
+      "category": "Dinner",
+      "status": "To test",
+      "version": "1.0",
+      "time": 25,
+      "icon": "🍳",
+      "summary": "Browned chestnut mushrooms, a silky pasta-water sauce and Gruyère added off the heat.",
+      "rating": null,
+      "ingredients": [
+        "75 g short pasta",
+        "200 g chestnut mushrooms, thickly sliced",
+        "1 garlic clove",
+        "1 teaspoon extra virgin olive oil",
+        "25 g Gruyère, grated",
+        "Fresh parsley",
+        "Black pepper"
+      ],
+      "method": [
+        "Cook the pasta; keep a cup of the water.",
+        "Brown the mushrooms in the oil over high heat without crowding the pan.",
+        "Add the garlic for 30 seconds.",
+        "Add the drained pasta with a splash of pasta water and toss.",
+        "Off the heat, stir in the Gruyère until it melts into the sauce.",
+        "Finish with parsley and black pepper."
+      ],
+      "note": "Gruyère goes stringy if boiled; always add it off the heat. Mushrooms brown properly only if the pan is not crowded.",
+      "source": "recipes/dinner/pasta-mushrooms-gruyere.md"
     }
   ]
 }

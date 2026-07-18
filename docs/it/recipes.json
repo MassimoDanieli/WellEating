@@ -227,6 +227,227 @@
       "translated": true
     },
     {
+      "id": "salmon-lemon-herb-couscous",
+      "title": "Couscous con salmone, limone ed erbe",
+      "category": "Couscous",
+      "status": "To test",
+      "version": "1.0",
+      "time": 20,
+      "icon": "🥣",
+      "summary": "Salmone in friggitrice ad aria sfaldato in un couscous fresco alle erbe.",
+      "rating": null,
+      "ingredients": [
+        "80 g di couscous secco, preparato e sgranato",
+        "150 g di filetto di salmone",
+        "1 cipollotto, affettato",
+        "Scorza e succo di 1/2 limone",
+        "Prezzemolo e aneto freschi",
+        "1 cucchiaino di olio extravergine di oliva",
+        "Pepe nero"
+      ],
+      "method": [
+        "Cuoci il salmone in friggitrice ad aria a 190 °C per otto-dieci minuti.",
+        "Prepara il couscous con la scorza di limone.",
+        "Sfalda il salmone nel couscous.",
+        "Aggiungi cipollotto, erbe, olio e succo di limone.",
+        "Completa con pepe nero."
+      ],
+      "note": "Stessi tempi del salmone in friggitrice: toglilo leggermente in anticipo. La scorza va nell'acqua del couscous; il succo alla fine.",
+      "source": "recipes/couscous/salmon-lemon-herb-couscous.md",
+      "translated": true
+    },
+    {
+      "id": "mushroom-gruyere-frittata",
+      "title": "Frittata di funghi e Gruyère",
+      "category": "Cena",
+      "status": "To test",
+      "version": "1.0",
+      "time": 25,
+      "icon": "🍳",
+      "summary": "La formula della frittata con funghi rosolati, timo e Gruyère.",
+      "rating": null,
+      "ingredients": [
+        "3 uova",
+        "150 g di funghi champignon, affettati",
+        "1/2 cipolla, affettata sottile",
+        "25 g di Gruyère grattugiato",
+        "1 cucchiaino di olio extravergine di oliva",
+        "Timo",
+        "Pepe nero"
+      ],
+      "method": [
+        "Rosola i funghi nell'olio e mettili da parte.",
+        "Fai appassire la cipolla nella stessa padella, con spruzzi d'acqua.",
+        "Rimetti i funghi con il timo.",
+        "Sbatti le uova con il pepe e quasi tutto il Gruyère.",
+        "Versa, abbassa la fiamma, copri e cuoci finché è quasi rappresa.",
+        "Girala brevemente, o gratina solo se la padella va in forno."
+      ],
+      "note": "Stessa struttura della frittata di zucchine; cambia solo il ripieno. Rosola bene i funghi prima, o annacqueranno le uova.",
+      "source": "recipes/dinner/mushroom-gruyere-frittata.md",
+      "translated": true
+    },
+    {
+      "id": "pasta-mushrooms-gruyere",
+      "title": "Pasta con funghi e Gruyère",
+      "category": "Cena",
+      "status": "To test",
+      "version": "1.0",
+      "time": 25,
+      "icon": "🍳",
+      "summary": "Funghi champignon ben rosolati, una salsa setosa con l'acqua di cottura e il Gruyère aggiunto fuori dal fuoco.",
+      "rating": null,
+      "ingredients": [
+        "75 g di pasta corta",
+        "200 g di funghi champignon, a fette spesse",
+        "1 spicchio d'aglio",
+        "1 cucchiaino di olio extravergine di oliva",
+        "25 g di Gruyère grattugiato",
+        "Prezzemolo fresco",
+        "Pepe nero"
+      ],
+      "method": [
+        "Cuoci la pasta; tieni da parte una tazza d'acqua di cottura.",
+        "Rosola i funghi nell'olio a fuoco vivo senza affollare la padella.",
+        "Aggiungi l'aglio per 30 secondi.",
+        "Unisci la pasta scolata con un mestolino d'acqua e salta.",
+        "Fuori dal fuoco, incorpora il Gruyère finché si scioglie nella salsa.",
+        "Completa con prezzemolo e pepe nero."
+      ],
+      "note": "Il Gruyère fila se bolle: aggiungilo sempre fuori dal fuoco. I funghi rosolano davvero solo se la padella non è affollata.",
+      "source": "recipes/dinner/pasta-mushrooms-gruyere.md",
+      "translated": true
+    },
+    {
+      "id": "courgette-lemon-pasta",
+      "title": "Pasta con zucchine e limone",
+      "category": "Cena",
+      "status": "To test",
+      "version": "1.0",
+      "time": 25,
+      "icon": "🍳",
+      "summary": "Zucchine cotte fino a diventare quasi cremose, ravvivate da limone e Parmigiano.",
+      "rating": null,
+      "ingredients": [
+        "75 g di pasta corta",
+        "1 zucchina grande, metà a fette sottili e metà grattugiata",
+        "1 spicchio d'aglio",
+        "Scorza e succo di 1/2 limone",
+        "1 cucchiaino di olio extravergine di oliva",
+        "15 g di Parmigiano grattugiato",
+        "Pepe nero",
+        "Basilico fresco, facoltativo"
+      ],
+      "method": [
+        "Cuoci la pasta; tieni da parte una tazza d'acqua.",
+        "Cuoci le zucchine a fette nell'olio finché dorate.",
+        "Aggiungi la zucchina grattugiata e l'aglio; cuoci finché morbida e quasi cremosa.",
+        "Unisci la pasta con un mestolino d'acqua e la scorza di limone.",
+        "Fuori dal fuoco, aggiungi Parmigiano e succo di limone.",
+        "Completa con pepe e basilico."
+      ],
+      "note": "La metà grattugiata si scioglie in salsa; quella a fette dà consistenza. Il succo di limone solo fuori dal fuoco, o diventa amaro.",
+      "source": "recipes/dinner/courgette-lemon-pasta.md",
+      "translated": true
+    },
+    {
+      "id": "mushroom-risotto",
+      "title": "Risotto ai funghi",
+      "category": "Cena",
+      "status": "To test",
+      "version": "1.0",
+      "time": 35,
+      "icon": "🍳",
+      "summary": "Un risotto vero, mantecato con Parmigiano e un cucchiaio di brodo al posto del burro.",
+      "rating": null,
+      "ingredients": [
+        "70 g di riso arborio",
+        "150 g di funghi champignon, affettati",
+        "1/2 cipolla, tritata fine",
+        "1 spicchio d'aglio",
+        "500 ml di brodo vegetale caldo",
+        "1 cucchiaino di olio extravergine di oliva",
+        "15 g di Parmigiano grattugiato",
+        "Pepe nero",
+        "Prezzemolo fresco"
+      ],
+      "method": [
+        "Rosola prima i funghi e mettili da parte.",
+        "Fai appassire la cipolla nell'olio, aggiungendo spruzzi d'acqua se serve.",
+        "Aggiungi l'aglio per 30 secondi, poi il riso per un minuto.",
+        "Aggiungi il brodo caldo un mestolo alla volta, mescolando spesso.",
+        "Rimetti i funghi negli ultimi cinque minuti.",
+        "Fuori dal fuoco, manteca con il Parmigiano e un ultimo cucchiaio di brodo.",
+        "Fai riposare due minuti, poi completa con prezzemolo e pepe."
+      ],
+      "note": "La mantecatura con Parmigiano e brodo sostituisce il classico burro. Il brodo deve essere caldo: freddo blocca la cottura.",
+      "source": "recipes/dinner/mushroom-risotto.md",
+      "translated": true
+    },
+    {
+      "id": "harissa-shakshuka",
+      "title": "Shakshuka all'harissa",
+      "category": "Cena",
+      "status": "To test",
+      "version": "1.0",
+      "time": 30,
+      "icon": "🍳",
+      "summary": "La formula delle uova al pomodoro spinta verso il Nord Africa: harissa, cumino, peperone e yogurt per rinfrescare.",
+      "rating": null,
+      "ingredients": [
+        "3 uova",
+        "200-250 ml di passata",
+        "1/2 cipolla",
+        "1/2 peperone rosso, affettato",
+        "1 spicchio d'aglio",
+        "1 cucchiaino di harissa",
+        "1/2 cucchiaino di cumino macinato",
+        "1 cucchiaino di olio extravergine di oliva",
+        "1 cucchiaio di yogurt greco",
+        "Prezzemolo fresco",
+        "1 fetta di pane"
+      ],
+      "method": [
+        "Fai appassire cipolla e peperone nell'olio, con spruzzi d'acqua.",
+        "Aggiungi l'aglio per 30 secondi, poi harissa e cumino.",
+        "Aggiungi la passata e sobbolli per 10-15 minuti.",
+        "Crea tre incavi e rompici dentro le uova.",
+        "Copri e cuoci per cinque-sette minuti.",
+        "Completa con yogurt e prezzemolo; servi con il pane."
+      ],
+      "note": "Lo yogurt bilancia l'harissa, come nel couscous. Stessa base delle uova al pomodoro: a viaggiare sono le spezie.",
+      "source": "recipes/dinner/harissa-shakshuka.md",
+      "translated": true
+    },
+    {
+      "id": "avocado-egg-toast",
+      "title": "Toast con avocado e uovo",
+      "category": "Colazione",
+      "status": "To test",
+      "version": "1.0",
+      "time": 10,
+      "icon": "🥐",
+      "summary": "Pane integrale tostato, mezzo avocado e un uovo cotto come si deve.",
+      "rating": null,
+      "ingredients": [
+        "1 fetta di pane integrale",
+        "1/2 avocado maturo",
+        "1 uovo",
+        "Succo di 1/4 di limone",
+        "Peperoncino in fiocchi",
+        "Pepe nero"
+      ],
+      "method": [
+        "Tosta il pane.",
+        "Schiaccia l'avocado con il succo di limone e il pepe.",
+        "Cuoci l'uovo in camicia o al tegamino con pochissimo olio.",
+        "Componi e completa con il peperoncino."
+      ],
+      "note": "Mezzo avocado è la porzione; l'altra metà si conserva con il nocciolo e limone. Il limone non è facoltativo: alza tutto il piatto.",
+      "source": "recipes/breakfast/avocado-egg-toast.md",
+      "translated": true
+    },
+    {
       "id": "eggs-in-tomato-sauce",
       "title": "Uova al pomodoro",
       "category": "Cena",
@@ -258,6 +479,67 @@
       ],
       "note": "",
       "source": "recipes/dinner/eggs-in-tomato-sauce.md",
+      "translated": true
+    },
+    {
+      "id": "greek-yoghurt-oats-honey",
+      "title": "Yogurt greco con avena, miele e frutta",
+      "category": "Colazione",
+      "status": "To test",
+      "version": "1.0",
+      "time": 5,
+      "icon": "🥐",
+      "summary": "Una colazione da cinque minuti con proteine, carboidrati lenti e il miele giusto.",
+      "rating": null,
+      "ingredients": [
+        "150 g di yogurt greco",
+        "30 g di avena",
+        "1 cucchiaino di miele",
+        "Una manciata di frutti di bosco o mezza banana",
+        "Cannella",
+        "Qualche noce, facoltativa"
+      ],
+      "method": [
+        "Mescola l'avena nello yogurt.",
+        "Fai riposare cinque minuti, o tutta la notte in frigo.",
+        "Completa con frutta, miele e cannella."
+      ],
+      "note": "Dopo una notte l'avena si ammorbidisce del tutto e sembra un dessert. Misura il miele: è il punto più facile da cui rientra lo zucchero.",
+      "source": "recipes/breakfast/greek-yoghurt-oats-honey.md",
+      "translated": true
+    },
+    {
+      "id": "french-onion-soup-gruyere",
+      "title": "Zuppa di cipolle alla francese con Gruyère",
+      "category": "Zuppa",
+      "status": "To test",
+      "version": "1.0",
+      "time": 50,
+      "icon": "🍲",
+      "summary": "Cipolle caramellate lentamente con la tecnica degli spruzzi d'acqua, con un crostone al Gruyère sopra.",
+      "rating": null,
+      "ingredients": [
+        "2 cipolle grandi, affettate sottili",
+        "1 cucchiaino di olio extravergine di oliva",
+        "1/2 cucchiaino di miele",
+        "500 ml di brodo di carne o vegetale",
+        "Uno spruzzo di vino bianco, facoltativo",
+        "1 fetta di pane integrale",
+        "30 g di Gruyère grattugiato",
+        "Pepe nero",
+        "Timo"
+      ],
+      "method": [
+        "Cuoci le cipolle lentamente nell'olio per 20-25 minuti.",
+        "Aggiungi piccoli spruzzi d'acqua ogni volta che attaccano.",
+        "A metà cottura aggiungi il miele.",
+        "Sfuma con il vino, se lo usi.",
+        "Aggiungi brodo e timo; sobbolli per 15 minuti.",
+        "Tosta il pane, copri con il Gruyère e gratina finché fuso.",
+        "Servi la zuppa con il crostone sopra e pepe nero."
+      ],
+      "note": "Stessa tecnica per le cipolle della frittata, solo in grande e più lenta. Sono le cipolle a decidere tutta la zuppa: non avere fretta nella prima fase.",
+      "source": "recipes/soups/french-onion-soup-gruyere.md",
       "translated": true
     }
   ]
