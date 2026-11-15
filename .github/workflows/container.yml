@@ -43,6 +43,14 @@ jobs:
 
   image:
     runs-on: ubuntu-latest
+    env:
+      # Save responses to files before grepping: with the default
+      # `bash -eo pipefail`, `curl | grep -q` fails when grep exits early.
+      CHECK: |
+        fail() { echo "::error::$*"; exit 1; }
+        wait_up() { for i in $(seq 1 30); do curl -fsS -o /dev/null "$1" && return 0; sleep 1; done; fail "container at $1 did not come up"; }
+        fetch() { curl -fsS "$1" -o "$2" || fail "GET $1 failed"; }
+        count() { python3 -c 'import json,sys; print(len(json.load(open(sys.argv[1]))["recipes"]))' "$1"; }
     steps:
       - uses: actions/checkout@v7
       - name: Build
@@ -50,29 +58,39 @@ jobs:
 
       - name: Sample cookbook (no content)
         run: |
+          eval "$CHECK"
           docker run -d --name sample -p 8081:80 welleating:ci
-          for i in $(seq 1 20); do curl -fsS localhost:8081/ >/dev/null && break; sleep 1; done
-          curl -fsS localhost:8081/ | grep -q WellEating
-          n=$(curl -fsS localhost:8081/recipes.json | python3 -c 'import json,sys; print(len(json.load(sys.stdin)["recipes"]))')
-          echo "sample recipes: $n"; test "$n" -ge 1
+          wait_up http://localhost:8081/
+          fetch http://localhost:8081/ index.html
+          grep -q WellEating index.html || fail "sample: homepage does not mention WellEating"
+          fetch http://localhost:8081/recipes.json sample.json
+          n=$(count sample.json); echo "sample recipes: $n"
+          [ "$n" -ge 1 ] || fail "sample: no recipes in recipes.json"
 
       - name: This repo as content, ocean theme, custom accent
         run: |
+          eval "$CHECK"
           docker run -d --name repo -p 8082:80 -v "$PWD":/content:ro -e THEME=ocean -e ACCENT_COLOR='#c2185b' welleating:ci
-          for i in $(seq 1 20); do curl -fsS localhost:8082/ >/dev/null && break; sleep 1; done
+          wait_up http://localhost:8082/
           expected=$(find recipes -name '*.md' ! -name '*.it.md' | wc -l)
-          n=$(curl -fsS localhost:8082/recipes.json | python3 -c 'import json,sys; print(len(json.load(sys.stdin)["recipes"]))')
-          echo "recipes: $n (expected $expected)"; test "$n" -eq "$expected"
-          curl -fsS localhost:8082/theme.css | grep -q -- '--accent:#e0764a'
-          curl -fsS localhost:8082/theme.css | grep -q -- '--accent:#c2185b'
-          curl -fsS localhost:8082/data/shopping-list.md | grep -q 'Shopping List'
-          curl -fsS localhost:8082/it/recipes.json >/dev/null
+          fetch http://localhost:8082/recipes.json repo.json
+          n=$(count repo.json); echo "recipes: $n (expected $expected)"
+          [ "$n" -eq "$expected" ] || fail "repo: $n recipes served, $expected in recipes/"
+          fetch http://localhost:8082/theme.css theme.css
+          grep -q -- '--accent:#e0764a' theme.css || fail "repo: ocean palette missing from theme.css"
+          grep -q -- '--accent:#c2185b' theme.css || fail "repo: ACCENT_COLOR missing from theme.css"
+          fetch http://localhost:8082/data/shopping-list.md shopping.md
+          grep -q 'Shopping List' shopping.md || fail "repo: shopping list not served"
+          fetch http://localhost:8082/it/recipes.json it.json
+          [ "$(count it.json)" -eq "$expected" ] || fail "repo: Italian recipes.json incomplete"
 
       - name: Invalid accent is ignored
         run: |
+          eval "$CHECK"
           docker run -d --name bad -p 8083:80 -e 'ACCENT_COLOR=red}body{display:none' welleating:ci
-          for i in $(seq 1 20); do curl -fsS localhost:8083/ >/dev/null && break; sleep 1; done
-          ! curl -fsS localhost:8083/theme.css | grep -q 'display:none'
+          wait_up http://localhost:8083/
+          fetch http://localhost:8083/theme.css bad.css
+          if grep -q 'display:none' bad.css; then fail "invalid ACCENT_COLOR was written into theme.css"; fi
 
       - name: Logs on failure
         if: failure()
