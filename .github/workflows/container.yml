@@ -1,0 +1,79 @@
+name: Container and chart
+
+# Builds the image and renders the Helm chart on every change that could
+# break them, so problems show up in the PR and not at release time.
+on:
+  pull_request:
+    paths:
+      - "Dockerfile"
+      - "docker/**"
+      - "chart/**"
+      - "docs/**"
+      - "scripts/build_recipes.py"
+      - ".github/workflows/container.yml"
+  push:
+    branches: [main]
+    paths:
+      - "Dockerfile"
+      - "docker/**"
+      - "chart/**"
+      - "docs/**"
+      - "scripts/build_recipes.py"
+      - ".github/workflows/container.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  chart:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: azure/setup-helm@v5
+      - name: Lint
+        run: helm lint chart/welleating
+      - name: Render (default, git content, PVC + ingress)
+        run: |
+          helm template t chart/welleating > /tmp/default.yaml
+          grep -q 'image: "ghcr.io/massimodanieli/welleating:' /tmp/default.yaml
+          helm template t chart/welleating --set content.repo=https://github.com/you/cookbook --set theme.accentColor='#c2185b' \
+            | grep -q 'CONTENT_REPO'
+          helm template t chart/welleating --set content.existingClaim=cookbook --set ingress.enabled=true \
+            | grep -q 'claimName: cookbook'
+
+  image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Build
+        run: docker build -t welleating:ci .
+
+      - name: Sample cookbook (no content)
+        run: |
+          docker run -d --name sample -p 8081:80 welleating:ci
+          for i in $(seq 1 20); do curl -fsS localhost:8081/ >/dev/null && break; sleep 1; done
+          curl -fsS localhost:8081/ | grep -q WellEating
+          n=$(curl -fsS localhost:8081/recipes.json | python3 -c 'import json,sys; print(len(json.load(sys.stdin)["recipes"]))')
+          echo "sample recipes: $n"; test "$n" -ge 1
+
+      - name: This repo as content, ocean theme, custom accent
+        run: |
+          docker run -d --name repo -p 8082:80 -v "$PWD":/content:ro -e THEME=ocean -e ACCENT_COLOR='#c2185b' welleating:ci
+          for i in $(seq 1 20); do curl -fsS localhost:8082/ >/dev/null && break; sleep 1; done
+          expected=$(find recipes -name '*.md' ! -name '*.it.md' | wc -l)
+          n=$(curl -fsS localhost:8082/recipes.json | python3 -c 'import json,sys; print(len(json.load(sys.stdin)["recipes"]))')
+          echo "recipes: $n (expected $expected)"; test "$n" -eq "$expected"
+          curl -fsS localhost:8082/theme.css | grep -q -- '--accent:#e0764a'
+          curl -fsS localhost:8082/theme.css | grep -q -- '--accent:#c2185b'
+          curl -fsS localhost:8082/data/shopping-list.md | grep -q 'Shopping List'
+          curl -fsS localhost:8082/it/recipes.json >/dev/null
+
+      - name: Invalid accent is ignored
+        run: |
+          docker run -d --name bad -p 8083:80 -e 'ACCENT_COLOR=red}body{display:none' welleating:ci
+          for i in $(seq 1 20); do curl -fsS localhost:8083/ >/dev/null && break; sleep 1; done
+          ! curl -fsS localhost:8083/theme.css | grep -q 'display:none'
+
+      - name: Logs on failure
+        if: failure()
+        run: for c in sample repo bad; do echo "== $c"; docker logs "$c" 2>&1 | tail -30 || true; done

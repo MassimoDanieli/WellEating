@@ -61,7 +61,14 @@ theme_css() {
 {
     echo "/* Theme: ${THEME:-forest} (generated at container start) */"
     theme_css "${THEME:-forest}"
-    [ -n "$ACCENT_COLOR" ] && echo ":root{--accent:${ACCENT_COLOR}}"
+    if [ -n "$ACCENT_COLOR" ]; then
+        # Only plain hex colours: the value is written straight into CSS.
+        if printf '%s' "$ACCENT_COLOR" | grep -Eq '^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$'; then
+            echo ":root{--accent:${ACCENT_COLOR}}"
+        else
+            echo "Ignoring ACCENT_COLOR='${ACCENT_COLOR}': use a hex colour like #c2185b" >&2
+        fi
+    fi
 } > "$HTML/theme.css"
 cp "$HTML/theme.css" "$HTML/it/theme.css" 2>/dev/null || true
 

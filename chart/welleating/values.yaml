@@ -1,8 +1,10 @@
 replicaCount: 1
 
 image:
-  repository: welleating
-  tag: latest
+  # Published by the Release workflow on every v* tag.
+  repository: ghcr.io/massimodanieli/welleating
+  # Empty = the chart's appVersion, so chart and image versions match.
+  tag: ""
   pullPolicy: IfNotPresent
 
 # Cookbook content. Choose ONE:
