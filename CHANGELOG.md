@@ -1,6 +1,38 @@
 # Changelog
 
-## 0.7.0 - 2026-07-16
+## 0.7.1 - 2026-11-15
+
+Maintenance: the v0.7.0 image did not start, and its Helm chart was never
+published.
+
+- **Container fix:** since 0.6.1 `build_recipes.py` reads `CHANGELOG.md`
+  to generate `version.js`, but the Dockerfile never copied it, so the
+  script crashed at startup and, with `set -e`, the container exited
+  before nginx started. The image now includes the changelog, and the
+  script keeps the existing `version.js` when the file is missing.
+  `ghcr.io/massimodanieli/welleating:0.7.0` and `:latest` (until 0.7.1
+  is tagged) are affected.
+
+- Release: lowercase the registry owner before `helm push` (OCI names
+  must be lowercase; the Docker image was fine because
+  docker/metadata-action lowercases on its own), lint the chart before
+  packaging, pass values to shell steps through env.
+- Helm chart now pulls `ghcr.io/massimodanieli/welleating` by default,
+  tagged with the chart's appVersion (it used to point at a local
+  `welleating:latest` image that a cluster cannot pull).
+- New Container and chart workflow: builds the image, starts it with the
+  sample cookbook and with this repository as content, checks recipes,
+  themes and data files, and renders the chart in three configurations.
+- `ACCENT_COLOR` accepts only hex colours, since it is written into CSS.
+- Recipe JSON is checked on pull requests (`build_recipes.py --check`);
+  the job that commits to main is the only one with write access.
+- Markdown link check moved to the maintained
+  tcort/github-action-markdown-link-check (the original was deprecated
+  in April 2025).
+- All GitHub Actions upgraded to their Node 24 majors; the Node 20
+  versions were producing deprecation warnings.
+
+## 0.7.0 - 2026-07-18
 
 Release automation.
 

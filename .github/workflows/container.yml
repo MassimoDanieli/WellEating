@@ -1,0 +1,97 @@
+name: Container and chart
+
+# Builds the image and renders the Helm chart on every change that could
+# break them, so problems show up in the PR and not at release time.
+on:
+  pull_request:
+    paths:
+      - "Dockerfile"
+      - "docker/**"
+      - "chart/**"
+      - "docs/**"
+      - "scripts/build_recipes.py"
+      - ".github/workflows/container.yml"
+  push:
+    branches: [main]
+    paths:
+      - "Dockerfile"
+      - "docker/**"
+      - "chart/**"
+      - "docs/**"
+      - "scripts/build_recipes.py"
+      - ".github/workflows/container.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  chart:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: azure/setup-helm@v5
+      - name: Lint
+        run: helm lint chart/welleating
+      - name: Render (default, git content, PVC + ingress)
+        run: |
+          helm template t chart/welleating > /tmp/default.yaml
+          grep -q 'image: "ghcr.io/massimodanieli/welleating:' /tmp/default.yaml
+          helm template t chart/welleating --set content.repo=https://github.com/you/cookbook --set theme.accentColor='#c2185b' \
+            | grep -q 'CONTENT_REPO'
+          helm template t chart/welleating --set content.existingClaim=cookbook --set ingress.enabled=true \
+            | grep -q 'claimName: cookbook'
+
+  image:
+    runs-on: ubuntu-latest
+    env:
+      # Save responses to files before grepping: with the default
+      # `bash -eo pipefail`, `curl | grep -q` fails when grep exits early.
+      CHECK: |
+        fail() { echo "::error::$*"; exit 1; }
+        wait_up() { for i in $(seq 1 30); do curl -fsS -o /dev/null "$1" && return 0; sleep 1; done; fail "container at $1 did not come up"; }
+        fetch() { curl -fsS "$1" -o "$2" || fail "GET $1 failed"; }
+        count() { python3 -c 'import json,sys; print(len(json.load(open(sys.argv[1]))["recipes"]))' "$1"; }
+    steps:
+      - uses: actions/checkout@v7
+      - name: Build
+        run: docker build -t welleating:ci .
+
+      - name: Sample cookbook (no content)
+        run: |
+          eval "$CHECK"
+          docker run -d --name sample -p 8081:80 welleating:ci
+          wait_up http://localhost:8081/
+          fetch http://localhost:8081/ index.html
+          grep -q WellEating index.html || fail "sample: homepage does not mention WellEating"
+          fetch http://localhost:8081/recipes.json sample.json
+          n=$(count sample.json); echo "sample recipes: $n"
+          [ "$n" -ge 1 ] || fail "sample: no recipes in recipes.json"
+
+      - name: This repo as content, ocean theme, custom accent
+        run: |
+          eval "$CHECK"
+          docker run -d --name repo -p 8082:80 -v "$PWD":/content:ro -e THEME=ocean -e ACCENT_COLOR='#c2185b' welleating:ci
+          wait_up http://localhost:8082/
+          expected=$(find recipes -name '*.md' ! -name '*.it.md' | wc -l)
+          fetch http://localhost:8082/recipes.json repo.json
+          n=$(count repo.json); echo "recipes: $n (expected $expected)"
+          [ "$n" -eq "$expected" ] || fail "repo: $n recipes served, $expected in recipes/"
+          fetch http://localhost:8082/theme.css theme.css
+          grep -q -- '--accent:#e0764a' theme.css || fail "repo: ocean palette missing from theme.css"
+          grep -q -- '--accent:#c2185b' theme.css || fail "repo: ACCENT_COLOR missing from theme.css"
+          fetch http://localhost:8082/data/shopping-list.md shopping.md
+          grep -q 'Shopping List' shopping.md || fail "repo: shopping list not served"
+          fetch http://localhost:8082/it/recipes.json it.json
+          [ "$(count it.json)" -eq "$expected" ] || fail "repo: Italian recipes.json incomplete"
+
+      - name: Invalid accent is ignored
+        run: |
+          eval "$CHECK"
+          docker run -d --name bad -p 8083:80 -e 'ACCENT_COLOR=red}body{display:none' welleating:ci
+          wait_up http://localhost:8083/
+          fetch http://localhost:8083/theme.css bad.css
+          if grep -q 'display:none' bad.css; then fail "invalid ACCENT_COLOR was written into theme.css"; fi
+
+      - name: Logs on failure
+        if: failure()
+        run: for c in sample repo bad; do echo "== $c"; docker logs "$c" 2>&1 | tail -30 || true; done

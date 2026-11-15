@@ -64,6 +64,10 @@ helm install cookbook ./chart/welleating \
   --set theme.name=terracotta
 ```
 
+The chart pulls `ghcr.io/massimodanieli/welleating` at the chart's
+`appVersion` by default. To run an image you built yourself, add
+`--set image.repository=welleating --set image.tag=latest`.
+
 See `chart/welleating/values.yaml` for content via PVC, ingress and
 resources. Content is read at pod start; restart the deployment to pick
 up cookbook changes (`kubectl rollout restart deploy/...`).

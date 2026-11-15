@@ -7,18 +7,38 @@ on:
       - "recipes/**"
       - "scripts/build_recipes.py"
       - "CHANGELOG.md"
+  pull_request:
+    paths:
+      - "recipes/**"
+      - "scripts/build_recipes.py"
+      - "CHANGELOG.md"
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  build:
+  # On PRs: parse every recipe and fail if the committed JSON is stale.
+  check:
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python3 scripts/build_recipes.py --check
 
-      - uses: actions/setup-python@v5
+  # On main: regenerate and commit.
+  build:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 

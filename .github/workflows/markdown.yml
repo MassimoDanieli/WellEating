@@ -4,12 +4,17 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   markdown-link-check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Check Markdown links
-        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        # gaurav-nelson/github-action-markdown-link-check was deprecated in
+        # April 2025; tcort's is the maintained fork with the same inputs.
+        uses: tcort/github-action-markdown-link-check@v1
         with:
           use-quiet-mode: 'yes'
