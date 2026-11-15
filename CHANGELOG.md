@@ -2,7 +2,16 @@
 
 ## 0.7.1 - 2026-11-15
 
-Maintenance: the v0.7.0 release never published the Helm chart.
+Maintenance: the v0.7.0 image did not start, and its Helm chart was never
+published.
+
+- **Container fix:** since 0.6.1 `build_recipes.py` reads `CHANGELOG.md`
+  to generate `version.js`, but the Dockerfile never copied it, so the
+  script crashed at startup and, with `set -e`, the container exited
+  before nginx started. The image now includes the changelog, and the
+  script keeps the existing `version.js` when the file is missing.
+  `ghcr.io/massimodanieli/welleating:0.7.0` and `:latest` (until 0.7.1
+  is tagged) are affected.
 
 - Release: lowercase the registry owner before `helm push` (OCI names
   must be lowercase; the Docker image was fine because

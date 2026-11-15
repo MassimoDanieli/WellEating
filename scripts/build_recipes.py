@@ -190,13 +190,21 @@ def build(lang="en", recipes_dir=None):
 
 
 def site_version():
-    """Read the current site version from the top entry of CHANGELOG.md."""
+    """Read the current site version from the top entry of CHANGELOG.md.
+
+    Returns None when there is no changelog (e.g. an image built without
+    it), so the caller keeps the existing version.js instead of crashing.
+    """
+    if not CHANGELOG.exists():
+        return None
     m = re.search(r"^## +(\d+\.\d+\.\d+)", CHANGELOG.read_text(encoding="utf-8"), re.MULTILINE)
     return m.group(1) if m else "0.0.0"
 
 
 def build_version_js():
     version = site_version()
+    if version is None:
+        return None
     return (
         "// Generated from CHANGELOG.md by scripts/build_recipes.py - do not edit.\n"
         f'window.WELLEATING_VERSION = "{version}";\n'
@@ -222,8 +230,12 @@ def main():
     outputs = {
         out_en: build("en", args.source),
         out_it: build("it", args.source),
-        (args.output_dir / "version.js") if args.output_dir else VERSION_JS: build_version_js(),
     }
+    version_js = build_version_js()
+    if version_js is not None:
+        outputs[(args.output_dir / "version.js") if args.output_dir else VERSION_JS] = version_js
+    else:
+        print("CHANGELOG.md not found: keeping the existing version.js.")
 
     if args.check:
         stale = [path for path, generated in outputs.items()

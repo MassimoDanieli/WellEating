@@ -17,6 +17,7 @@ RUN apk add --no-cache python3 git
 
 COPY docs/ /opt/welleating/site/
 COPY scripts/build_recipes.py /opt/welleating/scripts/build_recipes.py
+COPY CHANGELOG.md /opt/welleating/CHANGELOG.md
 COPY docker/sample-content/ /opt/welleating/sample-content/
 COPY docker/entrypoint.sh /opt/welleating/entrypoint.sh
 
